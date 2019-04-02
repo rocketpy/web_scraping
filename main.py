@@ -2,9 +2,17 @@ import requests
 from bs4 import BeautifulSoup
 
 
+# If you need to use a proxy, you can configure individual requests with the proxies argument to any request method
+proxies = {
+  'http': 'http:// ... ',
+  'https': 'http:// ... ',
+}
+
+requests.get('http://example.org', proxies=proxies)
+
+
 # lxml -  parser
 # beautifulsoup take html to python objects
-
 # create func for requests
 # r - response
 def get_html(url):
