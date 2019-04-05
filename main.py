@@ -17,8 +17,9 @@ requests.get('http://example.org', proxies=proxies)
 # r - response
 def get_html(url):
     r = requests.get(url)
-    return r.text
+    return r.text  # or r.content
 # r.text - returning HTML code of web-page
+# r.content - return text
 
 
 # convert html to python objects
