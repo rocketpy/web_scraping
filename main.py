@@ -21,6 +21,9 @@ def get_html(url):
 # r.text - returning HTML code of web-page
 # r.content - return text
 
+# look HTML at page
+soup = BeautifulSoup(r.content)
+print(soup.prettify)
 
 # convert html to python objects
 def get_data(html):
