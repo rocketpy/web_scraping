@@ -1,3 +1,4 @@
+# http://docs.python-requests.org/en/master/
 import requests
 from bs4 import BeautifulSoup
 
@@ -9,6 +10,13 @@ proxies = {
 }
 
 requests.get('http://example.org', proxies=proxies)
+
+r = requests.get('https:// ... ', auth=('user', 'pass'))
+r.status_code
+r.headers['content-type']
+r.encoding
+r.text
+r.json()
 
 
 # lxml -  parser
