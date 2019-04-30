@@ -43,11 +43,11 @@ def get_data(html):
 
 
 def main():
-    url = 'https://wordpress.org/plugins/'
+    url = 'https:// ... '
     get_data(get_html(url))
 
 # for print html-doc need : print(get_html(url))
 
 
 if __name__ == '__main__':
-    main()
+    main2()
