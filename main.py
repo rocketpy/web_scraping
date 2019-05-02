@@ -18,6 +18,32 @@ r.encoding
 r.text
 r.json()
 
+# working with headers
+r.headers
+{
+    'status': '200 OK',
+    'content-encoding': 'gzip',
+    'transfer-encoding': 'chunked',
+    'connection': 'close',
+    'server': 'nginx/1.0.4',
+    'x-runtime': '148ms',
+    'etag': '"e1ca502697e5c9317743dc078f67693f"',
+    'content-type': 'application/json; charset=utf-8'
+}
+ 
+r.headers['Content-Type']
+# 'application/json; charset=utf-8'
+ 
+r.headers.get('content-type')
+# 'application/json; charset=utf-8'
+ 
+r.headers['X-Random']
+# None
+ 
+# Get the headers of a given URL
+resp = requests.head("http://www.google.com")
+print resp.status_code, resp.text, resp.headers
+
 
 # lxml -  parser
 # beautifulsoup take html to python objects
