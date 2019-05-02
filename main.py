@@ -1,4 +1,5 @@
 # http://docs.python-requests.org/en/master/
+import json
 import requests
 from bs4 import BeautifulSoup
 
@@ -17,6 +18,14 @@ r.headers['content-type']
 r.encoding
 r.text
 r.json()
+
+# custom headers
+url = 'https://api.github.com/some/endpoint'
+payload = {'some': 'data'}
+headers = {'content-type': 'application/json'}
+ 
+r = requests.post(url, data=json.dumps(payload), headers=headers)
+
 
 # working with headers
 r.headers
