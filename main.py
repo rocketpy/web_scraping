@@ -1,4 +1,5 @@
 # http://docs.python-requests.org/en/master/
+# https://pypi.org/project/fake-useragent/ - use fake_useragent
 import json
 import requests
 from bs4 import BeautifulSoup
