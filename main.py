@@ -78,6 +78,20 @@ r.headers['X-Random']
 resp = requests.head("http://www.google.com")
 print resp.status_code, resp.text, resp.headers
 
+# base of r
+r = requests.get('https://api.github.com/user', auth=('user', 'pass'))
+r.status_code
+r.headers['content-type']
+r.encoding
+r.text
+r.json()
+
+# forms of request
+r = requests.post('https://httpbin.org/post', data = {'key':'value'})
+r = requests.put('https://httpbin.org/put', data = {'key':'value'})
+r = requests.delete('https://httpbin.org/delete')
+r = requests.head('https://httpbin.org/get')
+r = requests.options('https://httpbin.org/get')
 
 # lxml -  parser
 # beautifulsoup take html to python objects
