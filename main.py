@@ -49,9 +49,11 @@ r.json()
 url = 'https://api.github.com/some/endpoint'
 payload = {'some': 'data'}
 headers = {'content-type': 'application/json'}
- 
 r = requests.post(url, data=json.dumps(payload), headers=headers)
-
+# or
+url = 'https://api.github.com/some/endpoint'
+headers = {'user-agent': 'my-app/0.0.1'}
+r = requests.get(url, headers=headers)
 
 # working with headers
 r.headers
