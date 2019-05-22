@@ -1,6 +1,6 @@
+import csv
 import requests
 from bs4 import BeautifulSoup
-import csv
 
 
 def get_html(url):
@@ -50,4 +50,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main2()
+    main()
