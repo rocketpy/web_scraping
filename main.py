@@ -101,6 +101,14 @@ r = requests.delete('https://httpbin.org/delete')
 r = requests.head('https://httpbin.org/get')
 r = requests.options('https://httpbin.org/get')
 
+# download and safe image
+"""
+import requests
+r = requests.get('https://  .png')
+with open('file_name.png', 'wb') as f:
+    f.write(r.content)
+"""
+
 # lxml -  parser
 # beautifulsoup take html to python objects
 # create func for requests
