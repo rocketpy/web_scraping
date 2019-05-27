@@ -105,8 +105,10 @@ r = requests.options('https://httpbin.org/get')
 """
 import requests
 
-payload = {'page': 2, 'count': 25}
+payload = {'page': 2, 'count': 25}  # 'https:// ... .org/get?page=2&count=25'
 r = requests.get('https:// ... .org/get', params=payload)
+print(r.text)
+print(r.url)
 print(r.headers)
 """
 
