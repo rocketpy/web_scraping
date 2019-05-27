@@ -102,9 +102,18 @@ r = requests.delete('https://httpbin.org/delete')
 r = requests.head('https://httpbin.org/get')
 r = requests.options('https://httpbin.org/get')
 
+"""
+import requests
+
+payload = {'page': 2, 'count': 25}
+r = requests.get('https:// ... .org/get', params=payload)
+print(r.headers)
+"""
+
 # download and safe image
 """
 import requests
+
 r = requests.get('https://  .png')
 with open('file_name.png', 'wb') as f:
     f.write(r.content)
