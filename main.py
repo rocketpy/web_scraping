@@ -105,11 +105,42 @@ r = requests.options('https://httpbin.org/get')
 """
 import requests
 
+# using GET
 payload = {'page': 2, 'count': 25}  # 'https:// ... .org/get?page=2&count=25'
-r = requests.get('https:// ... .org/get', params=payload)
+r = requests.get('https://httpbin.org/get', params=payload)
 print(r.text)
 print(r.url)
 print(r.headers)
+"""
+
+"""
+import requests
+
+# using POST
+payload = {'username': 'John', 'password': 'testing'}  # 'https:// ... .org/get?page=2&count=25'
+r = requests.post('https://httpbin.org/post', data=payload)
+print(r.json())
+print(r.text)
+print(r.url)
+print(r.headers)
+"""
+
+"""
+import requests
+
+# using AUTHorization
+
+r = requests.get('https://httpbin.org/basic-auth/John/testing', auth=('John', 'testing'))
+print(r.text)
+"""
+"""
+import requests
+
+# using DELAY
+
+r = requests.get('https://httpbin.org/delay/1', timeout=3)  # 1 - 1 second
+print(r)
+print(r.text)
 """
 
 # download and safe image
