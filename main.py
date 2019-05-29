@@ -123,6 +123,19 @@ print(r.json())
 print(r.text)
 print(r.url)
 print(r.headers)
+
+or
+
+import json
+url = 'https://api.github.com/some/endpoint'
+payload = {'some': 'data'}
+r = requests.post(url, data=json.dumps(payload))
+
+or
+
+url = 'https://api.github.com/some/endpoint'
+payload = {'some': 'data'}
+r = requests.post(url, json=payload)
 """
 
 """
