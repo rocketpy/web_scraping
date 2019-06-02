@@ -1,3 +1,4 @@
+# http://httpbin.org/  -  A simple HTTP Request & Response Service
 # http://docs.python-requests.org/en/master/
 # https://pypi.org/project/fake-useragent/ - use fake_useragent
 
@@ -10,6 +11,11 @@ from random import choice
 # customize user_agent
 example_headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0'}
 r = requests.get('https:// ... .com',headers=example_headers)
+
+# for more information about response , use this :
+# print(dir(r))
+# print(help(r))
+
 
 # random user_agent
 desktop_agents = ['Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
@@ -95,6 +101,69 @@ r = requests.put('https://httpbin.org/put', data = {'key':'value'})
 r = requests.delete('https://httpbin.org/delete')
 r = requests.head('https://httpbin.org/get')
 r = requests.options('https://httpbin.org/get')
+
+"""
+import requests
+
+# using GET
+payload = {'page': 2, 'count': 25}  # 'https:// ... .org/get?page=2&count=25'
+r = requests.get('https://httpbin.org/get', params=payload)
+print(r.text)
+print(r.url)
+print(r.headers)
+"""
+
+"""
+import requests
+
+# using POST
+payload = {'username': 'John', 'password': 'testing'}  # 'https:// ... .org/get?page=2&count=25'
+r = requests.post('https://httpbin.org/post', data=payload)
+print(r.json())
+print(r.text)
+print(r.url)
+print(r.headers)
+
+or
+
+import json
+url = 'https://api.github.com/some/endpoint'
+payload = {'some': 'data'}
+r = requests.post(url, data=json.dumps(payload))
+
+or
+
+url = 'https://api.github.com/some/endpoint'
+payload = {'some': 'data'}
+r = requests.post(url, json=payload)
+"""
+
+"""
+import requests
+
+# using AUTHorization
+
+r = requests.get('https://httpbin.org/basic-auth/John/testing', auth=('John', 'testing'))
+print(r.text)
+"""
+"""
+import requests
+
+# using DELAY
+
+r = requests.get('https://httpbin.org/delay/1', timeout=3)  # 1 - 1 second
+print(r)
+print(r.text)
+"""
+
+# download and safe image
+"""
+import requests
+
+r = requests.get('https://  .png')
+with open('file_name.png', 'wb') as f:
+    f.write(r.content)
+"""
 
 # lxml -  parser
 # beautifulsoup take html to python objects
