@@ -184,6 +184,18 @@ bs = BeautifulSoup(req.text, 'html.parser')
 print(bs.find('table',{'class':'table-striped'}).get_text)
 """
 
+# web-crawler 
+"""
+from urllib.request import urlopen
+from bs4 import BeautifulSoup 
+
+html = urlopen('https://')
+bs = BeautifulSoup(html, 'html.parser')
+for link in bs.find_all('a'):
+    if 'href' in link.attrs:
+        print(link.attrs['href'])
+"""
+
 # lxml -  parser
 # beautifulsoup take html to python objects
 # create func for requests
