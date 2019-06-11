@@ -196,6 +196,34 @@ for link in bs.find_all('a'):
         print(link.attrs['href'])
 """
 
+# if no valid object(soup-object) or no valid href for video  !!!
+"""
+# for VK API
+# https://www.youtube.com/watch?v=q3UXjbkX8s8
+def download_file(url):
+    try:
+        r = requests.get(url, stream=True)
+    except:
+        print(url)
+    else:
+        filename = url.split('/')[-1]
+        with open(filename, 'wb') as file:
+            for chunk in r.iter_content(1024000):
+                file.write(chunk)
+
+
+def get_file(url):
+    html = requests.get(url).text
+    soup = BeautifulSoup(html, 'lxml')
+    try:
+        video_url = soup.find('div', id='page_wrap').find('source').get('src').split('?')[0]
+    except:
+        print(soup)
+    else:
+        download_file(video_url)
+"""
+
+
 # lxml -  parser
 # beautifulsoup take html to python objects
 # create func for requests
