@@ -223,6 +223,68 @@ def get_file(url):
         download_file(video_url)
 """
 
+# crawling through Forms and Logins
+"""
+import requests
+
+params = {'firstname': 'John', 'lastname': 'Doe'}
+r = requests.post("http:// ... ", data=params)
+print(r.text)
+
+# or
+
+import requests
+
+params = {'email_addr': ' ... @gmail.com'}
+r = requests.post("http:// ... ", data=params)
+print(r.text)
+
+# or
+
+import requests
+
+files = {'uploadFile': open('files/Python-logo.png', 'rb')}
+r = requests.post('http:// ... ', files=files)
+print(r.text)
+
+# or
+
+import requests
+
+params = {'username': 'Ryan', 'password': 'password'}
+r = requests.post('http:// ... ', params)
+
+print('Cookie is set to:')
+print(r.cookies.get_dict())
+print('Going to profile page...')
+r = requests.get('http:// ... ', cookies=r.cookies)
+print(r.text)
+
+# or
+
+import requests
+
+session = requests.Session()
+
+params = {'username': 'username', 'password': 'password'}
+s = session.post('http:// ... ', params)
+print("Cookie is set to:")
+print(s.cookies.get_dict())
+print('Going to profile page...')
+s = session.get('http:// ... ')
+print(s.text)
+
+# or
+
+import requests
+from requests.auth import AuthBase
+from requests.auth import HTTPBasicAuth
+
+auth = HTTPBasicAuth('ryan', 'password')
+r = requests.post(url='http:// ... ', auth=auth)
+print(r.text)
+"""
+
 
 # lxml -  parser
 # beautifulsoup take html to python objects
