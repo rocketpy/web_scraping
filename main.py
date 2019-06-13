@@ -1,6 +1,8 @@
 # http://httpbin.org/  -  A simple HTTP Request & Response Service
 # http://docs.python-requests.org/en/master/
 # https://pypi.org/project/fake-useragent/ - use fake_useragent
+# pip install haul - find thumbnails and original images from URL or HTML file
+
 
 import json
 import requests
@@ -284,7 +286,27 @@ auth = HTTPBasicAuth('ryan', 'password')
 r = requests.post(url='http:// ... ', auth=auth)
 print(r.text)
 """
+# find images from img src, a href and even background-image
 
+"""
+import haul
+
+url = 'http://gibuloto.tumblr.com/post/62525699435/fuck-yeah'
+result = haul.find_images(url)
+
+print(result.image_urls)
+
+# or 
+
+# find original (or bigger size) images with extend=True
+
+import haul
+
+url = 'http://gibuloto.tumblr.com/post/62525699435/fuck-yeah'
+result = haul.find_images(url, extend=True)
+
+print(result.image_urls)
+"""
 
 # lxml -  parser
 # beautifulsoup take html to python objects
