@@ -3,7 +3,7 @@
 # https://pypi.org/project/fake-useragent/ - use fake_useragent
 # pip install haul - find thumbnails and original images from URL or HTML file
 
-
+import csv
 import json
 import requests
 from bs4 import BeautifulSoup
