@@ -4,6 +4,7 @@
 # pip install haul - find thumbnails and original images from URL or HTML file
 
 import csv
+import time
 import json
 import requests
 from bs4 import BeautifulSoup
@@ -313,6 +314,7 @@ print(result.image_urls)
 # create func for requests
 # r - response
 def get_html(url):
+    time.sleep(3)  # before make request , wait 3 seconds
     r = requests.get(url)
     return r.text  # or r.content
 # r.text - returning HTML code of web-page
