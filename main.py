@@ -11,6 +11,18 @@ from bs4 import BeautifulSoup
 from random import choice
 
 
+# some simple example , if HTML is saved in the file .html , without requests !
+"""
+from bs4 import BeautifulSoup
+
+raw_html = open('contrived.html').read()
+html = BeautifulSoup(raw_html, 'html.parser')
+for p in html.select('p'):
+  if p['id'] == 'name_id':
+    print(p.text)
+"""
+
+
 # customize user_agent
 example_headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0'}
 r = requests.get('https:// ... .com',headers=example_headers)
