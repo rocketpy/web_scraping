@@ -173,16 +173,6 @@ print(r)
 print(r.text)
 """
 
-# download and safe image
-"""
-import requests
-
-r = requests.get('https://  .png')
-with open('file_name.png', 'wb') as f:
-    f.write(r.content)
-"""
-
-
 # some tricks or traps
 """
 import requests
