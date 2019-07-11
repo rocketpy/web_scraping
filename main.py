@@ -23,6 +23,13 @@ for p in html.select('p'):
 """
 
 
+# very important , to use Timeouts for prevent failure of programm  !!!
+#  If no timeout is specified explicitly, requests do not time out.
+
+requests.get('https://github.com/', timeout=0.001)
+
+
+
 # customize user_agent
 example_headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0'}
 r = requests.get('https:// ... .com',headers=example_headers)
