@@ -2,6 +2,7 @@
 # http://docs.python-requests.org/en/master/
 # https://pypi.org/project/fake-useragent/ - use fake_useragent
 # pip install haul - find thumbnails and original images from URL or HTML file
+# https://github.com/detailyang/awesome-cheatsheet  
 
 import csv
 import time
