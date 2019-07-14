@@ -299,6 +299,18 @@ auth = HTTPBasicAuth('ryan', 'password')
 r = requests.post(url='http:// ... ', auth=auth)
 print(r.text)
 """
+
+
+# for download img from url
+"""
+from requests import get 
+
+def download(url, file_name):
+    with open(file_name, "wb") as file:
+        response = get(url)
+        file.write(response.content)
+"""
+
 # find images from img src, a href and even background-image
 
 """
