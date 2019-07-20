@@ -30,6 +30,18 @@ for p in html.select('p'):
 requests.get('https://github.com/', timeout=0.001)
 
 
+# checking response
+
+"""
+r = requests.get('https:// ... ')
+ 
+if r.status_code == 200:
+    print('Ok !')
+ 
+if r.status_code == 404:
+    print('Page not found !')
+"""
+
 
 # customize user_agent
 example_headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0'}
