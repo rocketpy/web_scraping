@@ -42,6 +42,15 @@ if r.status_code == 404:
     print('Page not found !')
 """
 
+# with headers and timeout example
+
+"""
+headers = {'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko)
+          Chrome/53.0.2785.143 Safari/537.36'
+          }
+ 
+r = requests.get(url, headers=headers, timeout=5)
+"""
 
 # customize user_agent
 example_headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0'}
