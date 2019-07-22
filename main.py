@@ -94,6 +94,7 @@ r.headers['content-type']
 r.encoding
 r.text
 r.json()
+r.history
 
 # custom headers
 url = 'https://api.github.com/some/endpoint'
