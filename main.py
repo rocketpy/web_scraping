@@ -3,6 +3,7 @@
 # https://pypi.org/project/fake-useragent/ - use fake_useragent
 # pip install haul - find thumbnails and original images from URL or HTML file
 # https://github.com/detailyang/awesome-cheatsheet  
+# http://docs.pyspider.org/en/latest/ - a powerful Spider(Web Crawler) system in Python !
 
 import csv
 import time
