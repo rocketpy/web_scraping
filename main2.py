@@ -1,10 +1,13 @@
 import csv
+import random
 import requests
 from bs4 import BeautifulSoup
 
 
 def get_html(url):
-    r = requests.get(url)
+    proxy = {'http': 'http://' + choice(proxies)}  # proxies is a list
+    useragent = {'User-Agent': choice(useragents)}  # useragents is a list
+    r = requests.get(url, headers=useragent, proxies=proxy)
     return r.text
 
 
