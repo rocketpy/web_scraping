@@ -10,6 +10,14 @@ def get_html(url):
     r = requests.get(url, headers=useragent, proxies=proxy)
     return r.text
 
+# or use a file useragents.txt or proxies.txt
+"""
+useragents = open('useragents.txt').read().split('\n')  # return a list
+
+proxies = open('proxies.txt').read().split('\n')
+
+in file proxie must be like : 124.88.66.22:83  - 83 is a port of proxie
+"""
 
 def refined(s):
     r = s.split()[0]
