@@ -19,6 +19,11 @@ proxies = open('proxies.txt').read().split('\n')
 in file proxie must be like : 124.88.66.22:83  - 83 is a port of proxie
 """
 
+for i in range(10):
+    proxy = {'http': 'http://' + choice(proxies)}  # proxies is a list
+    useragent = {'User-Agent': choice(useragents)}  # useragents is a list
+    
+
 def refined(s):
     r = s.split()[0]
     return r.replace(',', '')
