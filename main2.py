@@ -1,9 +1,10 @@
+# importing modules
 import csv
 import random
 import requests
 from bs4 import BeautifulSoup
 
-
+# get data , using proxy and user-agent
 def get_html(url, useragent=None, proxy=None):
     proxy = {'http': 'http://' + choice(proxies)}  # proxies is a list
     useragent = {'User-Agent': choice(useragents)}  # useragents is a list
@@ -18,7 +19,7 @@ proxies = open('proxies.txt').read().split('\n')
 
 in file proxie must be like : 124.88.66.22:83  - 83 is a port of proxie
 """
-
+# use random for proxy and user-agent
 for i in range(10):
     proxy = {'http': 'http://' + choice(proxies)}  # proxies is a list
     useragent = {'User-Agent': choice(useragents)}  # useragents is a list
@@ -28,7 +29,7 @@ def refined(s):
     r = s.split()[0]
     return r.replace(',', '')
 
-
+# writing data to CSV file
 def write_csv(data):
     with open('plugins.csv', 'a') as f:
         writer = csv.writer(f)
@@ -37,7 +38,7 @@ def write_csv(data):
                          data['url'],
                          data['reviews']))
 
-
+# get some data for writing to CSV file
 def get_data(html):
     soup = BeautifulSoup(html, 'lxml')
     popular = soup.find_all('section')[1]
@@ -57,7 +58,7 @@ def get_data(html):
         write_csv(data)
         # print(data)
 
-
+# call main function
 def main():
     url = 'https:// ... '
     get_data(get_html(url))
