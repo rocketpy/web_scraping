@@ -30,7 +30,6 @@ for p in html.select('p'):
 
 requests.get('https://github.com/', timeout=0.001)
 
-
 # checking response
 
 """
@@ -149,6 +148,21 @@ r = requests.put('https://httpbin.org/put', data = {'key':'value'})
 r = requests.delete('https://httpbin.org/delete')
 r = requests.head('https://httpbin.org/get')
 r = requests.options('https://httpbin.org/get')
+
+"""
+#  if a response contains some Cookies
+
+url = 'http://example.com/some/cookie/setting/url'
+r = requests.get(url)
+r.cookies['example_cookie_name']
+
+#  to send your own cookies to the server
+
+url = 'https://httpbin.org/cookies'
+cookies = dict(cookies_are='working')
+r = requests.get(url, cookies=cookies)
+r.text
+"""
 
 """
 import requests
