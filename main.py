@@ -164,7 +164,22 @@ r = requests.get(url, cookies=cookies)
 r.text
 """
 
+#  a Session object has all the methods of the main Requests API 
+s = requests.Session()
+s.get('https://httpbin.org/cookies/set/sessioncookie/123456789')
+r = s.get('https://httpbin.org/cookies')
+print(r.text)   # '{"cookies": {"sessioncookie": "123456789"}}'
+
+#  provide default data to the request methods
+s = requests.Session()
+s.auth = ('user', 'pass')
+s.headers.update({'x-test': 'true'})
+
+# both 'x-test' and 'x-test2' are sent
+s.get('https://httpbin.org/headers', headers={'x-test2': 'true'})
+
 """
+
 import requests
 
 # using GET
