@@ -132,7 +132,7 @@ r.headers['X-Random']
  
 # Get the headers of a given URL
 resp = requests.head("http://www.google.com")
-print resp.status_code, resp.text, resp.headers
+print(resp.status_code, resp.text, resp.headers)
 
 # base of r
 r = requests.get('https://api.github.com/user', auth=('user', 'pass'))
