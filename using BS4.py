@@ -4,14 +4,14 @@ from bs4 import BeautifulSoup
 
 """
 proxies = {
-  'http': 'http://here proxy place',
+  'http': 'http://',
   'https': 'http://',
 }
 
 requests.get('http://example.org', proxies=proxies)
 """
 
-result = requests.get('https://www.whitehouse.gov/briefings-statements/')  # get data
+result = requests.get('https://www...')  # get data
 src = result.content
 soup = BeautifulSoup(src, 'lxml')
 urls = []
