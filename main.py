@@ -4,6 +4,11 @@
 # pip install haul - find thumbnails and original images from URL or HTML file
 # https://github.com/detailyang/awesome-cheatsheet  
 # http://docs.pyspider.org/en/latest/ - a powerful Spider(Web Crawler) system in Python !
+# https://pypi.org/project/proxy-requests/  -  Python Proxy Requests -  https://github.com/rootVIII/proxy_requests
+# https://github.com/bulkan/robotframework-requests  - Robot Framework keyword library wrapper for requests 
+# https://github.com/SpiderClub/weibospider  - A distributed crawler for weibo, building with celery and requests.
+# https://github.com/encode/requests-async  - async-await support for `requests` !
+
 
 import csv
 import time
