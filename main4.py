@@ -22,13 +22,12 @@ user_agents = ['Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, l
               'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36',
               'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36']
 
-
 def get_html(url):
 #    time.sleep(2)
     headers = {'User-Agent': choice(user_agents)}
-    proxy = {'http': 'http://' + choice(proxies)} 
-    useragent = {'User-Agent': choice(user_agents)} 
-    r = requests.get(url, headers=headers, timeout=3)
+    proxies = {'http': 'http://' + choice(proxies)} 
+#   useragent = {'User-Agent': choice(user_agents)} 
+    r = requests.get(url, proxies=proxies, headers=headers, timeout=3)
     if r.status_code == 200:
         return r.text
 
@@ -58,3 +57,6 @@ list_user_agents = ['Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHT
 def main():
     url = 'https://2ip.ua/ru/'
     print(get_data(get_html(url)))
+           
+if __name__ == '__main__':
+    main()
