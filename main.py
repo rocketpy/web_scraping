@@ -30,13 +30,11 @@ for p in html.select('p'):
 """
 
 
-# very important , to use Timeouts for prevent failure of programm  !!!
-#  If no timeout is specified explicitly, requests do not time out.
-
-requests.get('https://github.com/', timeout=0.001)
+# VERY  important , use Timeouts for prevent failure of programm  !!!
+#  if no timeout is specified explicitly, requests do not time out !!!
+requests.get('https://github.com/', timeout=1)  # 1 sec
 
 # checking response
-
 """
 r = requests.get('https:// ... ')
  
@@ -48,12 +46,9 @@ if r.status_code == 404:
 """
 
 # with headers and timeout example
-
 """
 headers = {'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko)
-          Chrome/53.0.2785.143 Safari/537.36'
-          }
- 
+          Chrome/53.0.2785.143 Safari/537.36'}
 r = requests.get(url, headers=headers, timeout=5)
 """
 
@@ -62,8 +57,8 @@ example_headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) G
 r = requests.get('https:// ... .com',headers=example_headers)
 
 # for more information about response , use this :
-# print(dir(r))
-# print(help(r))
+print(dir(r))
+print(help(r))
 
 
 # random user_agent
@@ -86,10 +81,8 @@ r = requests.get('https://edmundmartin.com',headers=random_headers())
 
 
 # If you need to use a proxy, you can configure individual requests with the proxies argument to any request method
-proxies = {
-  'http': 'http:// ... ',
-  'https': 'http:// ... ',
-}
+proxies = {'http': 'http:// ... ',
+           'https': 'http:// ... '}
 
 requests.get('http://example.org', proxies=proxies)
 
@@ -147,27 +140,27 @@ r.encoding
 r.text
 r.json()
 
-# forms of request
+# FORMS of requests  !!!
 r = requests.post('https://httpbin.org/post', data = {'key':'value'})
 r = requests.put('https://httpbin.org/put', data = {'key':'value'})
 r = requests.delete('https://httpbin.org/delete')
 r = requests.head('https://httpbin.org/get')
 r = requests.options('https://httpbin.org/get')
 
-"""
-#  if a response contains some Cookies
 
+# WORKING WITH COOKIES !
+
+#  if a response contains some Cookies
 url = 'http://example.com/some/cookie/setting/url'
 r = requests.get(url)
 r.cookies['example_cookie_name']
 
 #  to send your own cookies to the server
-
 url = 'https://httpbin.org/cookies'
 cookies = dict(cookies_are='working')
 r = requests.get(url, cookies=cookies)
 r.text
-"""
+
 
 #  a Session object has all the methods of the main Requests API 
 s = requests.Session()
@@ -369,8 +362,6 @@ def download(url, file_name):
 """
 
 # find images from img src, a href and even background-image
-
-"""
 import haul
 
 url = 'http://gibuloto.tumblr.com/post/62525699435/fuck-yeah'
@@ -388,9 +379,9 @@ url = 'http://gibuloto.tumblr.com/post/62525699435/fuck-yeah'
 result = haul.find_images(url, extend=True)
 
 print(result.image_urls)
-"""
 
-# storing data
+
+# storing data to CSV
 """
 import csv
 
