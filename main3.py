@@ -1,14 +1,12 @@
 import csv
 import time
-import random
 import requests
+from random import choice
 from bs4 import BeautifulSoup
 
 
-proxies = {
-  'http': 'http:// ... ',
-  'https': 'http:// ... ',
-}
+proxies = {'http': 'http:// ... ',
+           'https': 'http:// ... '}
 
 headers = {'User-Agent': choice(useragents)}
 
