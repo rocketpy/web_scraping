@@ -3,9 +3,13 @@ import time
 import requests
 from random import choice
 from bs4 import BeautifulSoup
+from fake_useragent import UserAgent
 
 
 proxs = {'https': 'http://'}
+
+ua = UserAgent(cache=False)
+ua.random
 
 user_agents = ['Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
               'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
@@ -56,3 +60,5 @@ def main():
            
 if __name__ == '__main__':
     main()
+    
+#  pip install fake-useragent
