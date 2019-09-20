@@ -11,8 +11,8 @@ proxies = {'http': 'http:// ... ',
 headers = {'User-Agent': choice(useragents)}
 
 def get_html(url):
-    time.sleep(3)
-    proxy = {'http': 'http://' + choice(proxies)} 
+    #time.sleep(3)
+    proxy = {'http': 'http://' + proxies} 
     useragent = {'User-Agent': choice(useragents)} 
     r = requests.get(url, headers=headers, timeout=3)
     return r.text
