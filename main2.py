@@ -2,26 +2,26 @@
 import csv
 import random
 import requests
+from random import choice
 from bs4 import BeautifulSoup
 
 # get data , using proxy and user-agent
 def get_html(url, useragent=None, proxy=None):
-    proxy = {'http': 'http://' + choice(proxies)}  # proxies is a list
+    proxy = {'http': 'http://' + proxies}
     useragent = {'User-Agent': choice(useragents)}  # useragents is a list
     r = requests.get(url, headers=useragent, proxies=proxy)
     return r.text
 
 # or use a file useragents.txt or proxies.txt
-"""
 useragents = open('useragents.txt').read().split('\n')  # return a list
 
 proxies = open('proxies.txt').read().split('\n')
 
-in file proxie must be like : 124.88.66.22:83  - 83 is a port of proxie
-"""
+# in file proxie must be like : 124.88.66.22:83  , 83 is a port of proxie
+
 # use random for proxy and user-agent
 for i in range(10):
-    proxy = {'http': 'http://' + choice(proxies)}  # proxies is a list
+    proxy = {'http': 'http://' + proxies}
     useragent = {'User-Agent': choice(useragents)}  # useragents is a list
     
 
@@ -64,7 +64,6 @@ def main():
     get_data(get_html(url))
 
 # for print html-doc need : print(get_html(url))
-
 
 if __name__ == '__main__':
     main()
