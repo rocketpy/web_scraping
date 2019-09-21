@@ -1,14 +1,14 @@
 import csv
+import time
 import requests
 from multiprocessing import Pool
-from time import sleep
 
 
-def get_html(url):  # chtob ne zabanil nas server mozhno ispol'zovat funkciyu sleep ...
-    sleep(1)  # mezhdu zaprosami budet 1 sekunda , no mozhna i bez sleep , prosto ego udalit' ...
+
+def get_html(url):
+    sleep(1)  # 1 sec
     r = requests.get(url)
     return r.text
-
 
 def write_csv(data):
     with open('websites.csv', 'a') as f:
@@ -16,12 +16,11 @@ def write_csv(data):
         writer = csv.DictWriter(f, fieldnames=order)
         writer.writerow(data)
 
-
 # Parsim tekst a ne html
 def get_page_data(text):
         data = text.strip().split('\n')[1:]  # data vernet spisok !!!
 
-        for r in data:  # kazhdaya r eto stroka
+        for r in data:  # any r is a string
             columns = r.strip().split('\t')
             name = columns[0]
             url = columns[1]
@@ -42,20 +41,13 @@ def make_all(url):
     text = get_html(url)
     get_page_data(text)
 
-
 def main():
-    url = 'https://www.liveinternet.ru/rating/ru//today.tsv?page={}'
-    urls = [url.format(str(i)) for i in range(1, 6321)]  # Kolichestvo stranic na liveinternet.ru
+    url = 'https://www...page={}'
+    urls = [url.format(str(i)) for i in range(1, 6321)]  # pages
 
-    with Pool(20) as p:  # Pool eto klas vsh processov a 20 eto kolichestvo processov
-        p.map(make_all, urls)  # p.map beret kazhdiy url i k nemu primenyaet funkciyu make_all
+    with Pool(20) as p:  # pools is a process
+        p.map(make_all, urls)  # p.map to every func make_all
 
 
 if __name__ == '__main__':
     main()
-
-"""
-Multi parsing ne goditsa dlya slabih serverov ,
-esli multiparsing medlenno rabotaet , vozmozhno server umishlenno , 
-zamedlyaet process otveta na zaprosi ...
-"""
