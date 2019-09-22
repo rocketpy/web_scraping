@@ -16,9 +16,8 @@ def write_csv(data):
         writer = csv.DictWriter(f, fieldnames=order)
         writer.writerow(data)
 
-# Parsim tekst a ne html
 def get_page_data(text):
-        data = text.strip().split('\n')[1:]  # data vernet spisok !!!
+        data = text.strip().split('\n')[1:]  # data return a list
 
         for r in data:  # any r is a string
             columns = r.strip().split('\t')
