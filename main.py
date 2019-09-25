@@ -29,6 +29,20 @@ for p in html.select('p'):
     print(p.text)
 """
 
+"""
+#  snippet for naming of imgs
+import random
+import requests
+
+names = []
+
+def name_img(url):
+  new_img_name = random.randrange(1, 1000000)
+  new_name = str(new_img_name) + ".jpg"
+  r = requests.get(url, name)
+  return names.append(new_name)
+"""
+
 
 # VERY  important , use Timeouts for prevent failure of programm  !!!
 #  if no timeout is specified explicitly, requests do not time out !!!
