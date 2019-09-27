@@ -48,16 +48,39 @@ def name_img(url):
 #  if no timeout is specified explicitly, requests do not time out !!!
 requests.get('https://github.com/', timeout=1)  # 1 sec
 
-# checking response
+# checking status of response
 """
-r = requests.get('https:// ... ')
+response = requests.get('https:// ... ')
  
-if r.status_code == 200:
-    print('Ok !')
+if response.status_code == 200:
+    print('Success !')
  
-if r.status_code == 404:
-    print('Page not found !')
+elif response.status_code == 404:
+    print('Not Found !')
+    
+or 
+
+if response:
+    print('Success !')
+else:
+    print('An error has occurred !')
+    
 """
+# in Python 3.6+
+import requests
+from requests.exceptions import HTTPError
+
+
+for url in ['https://...', 'https://...']:
+    try:
+        response = requests.get(url)
+        response.raise_for_status()
+    except HTTPError as http_err:
+        print(f'HTTP error occurred: {http_err}') 
+    except Exception as err:
+        print(f'Other error occurred: {err}') 
+    else:
+        print('Success !')
 
 # with headers and timeout example
 """
