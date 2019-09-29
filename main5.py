@@ -5,7 +5,8 @@ from random import choice
 from multiprocessing import Pool
 
 
-proxs = {'https': 'http://'}
+proxs = {'http': 'http:// ... ',
+         'https': 'http:// ... '}
 
 user_agents = ['Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
               'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36',
