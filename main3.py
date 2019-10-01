@@ -41,14 +41,46 @@ useragents = ['Mozilla/5.0 (Windows; U; MSIE 9.0; WIndows NT 9.0; en-US)',
 
 
 """
+import csv
+import pandas
 import requests
 from bs4 import BeautifulSoup
+from collections import OrderedDict
+
 
 page = requests.get("https://www...")
-
 soup = BeautifulSoup(page.content,"html.parser")
-print(soup.prettify())
 
+name = soup.find("div",{"class":"name"})
+# name = soup.find("div",{"class":"name"}).text.replace("\n","").strip()   it's a full path
+
+player_ids = pandas.read_csv("player_ids.csv")
+ids = player_ids["Ids"]
+
+base_url = "https://www..."
+
+player_list = []
+
+for pages in ids:
+    d=OrderedDict()
+    print(base_url+str(pages)+"/profile.html")
+    request = requests.get(base_url+str(pages)+"/profile.html")
+    content = request.content
+    soup = BeautifulSoup(content,"html.parser")
+    d['Name'] = soup.find("div",{"class":"name"}).text.replace("\n","").strip()
+    d['Country'] = soup.find("div",{"class":"country"}).text.replace("\n","").strip()
+    d['Role'] = soup.find("div",{"class":"role"}).text.replace("\n","").strip()
+    d['Age'] = soup.find("div",{"class":"profile-number"}).text.replace("\n","").strip()
+    d['Height(cm)'] = soup.find_all("div",{"class":"profile-number"})[1].text.replace("\n","").strip()
+    d['International Caps'] = soup.find_all("div",{"class":"profile-number"})[2].text.replace("\n","").strip()
+    d['International Goals'] = soup.find_all("div",{"class":"profilenumber"})[3].text.replace("\n","").strip()
+
+player_list.append(d)
+df = pandas.DataFrame(player_list)
+df.to_csv('Players_info.csv', index = False)
+print("Success \n")
+
+# print(soup.prettify())
 
 """
     
