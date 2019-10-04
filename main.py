@@ -8,7 +8,8 @@
 # https://github.com/bulkan/robotframework-requests  - Robot Framework keyword library wrapper for requests 
 # https://github.com/SpiderClub/weibospider  - A distributed crawler for weibo, building with celery and requests.
 # https://github.com/encode/requests-async  - async-await support for `requests` !
-
+# https://github.com/scrapinghub/dateparser  - dateparser -- python parser
+# https://github.com/liamks/libpytunes  - parse iTunes
 
 import csv
 import time
