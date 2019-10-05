@@ -28,6 +28,8 @@ html = BeautifulSoup(raw_html, 'html.parser')
 for p in html.select('p'):
   if p['id'] == 'name_id':
     print(p.text)
+    
+#  print(soup.prettify())
 """
 
 """
@@ -97,6 +99,7 @@ r = requests.get('https:// ... .com',headers=example_headers)
 # for more information about response , use this :
 print(dir(r))
 print(help(r))
+# print(soup.prettify())
 
 
 # random user_agent
@@ -417,6 +420,7 @@ url = 'http://gibuloto.tumblr.com/post/62525699435/fuck-yeah'
 result = haul.find_images(url, extend=True)
 
 print(result.image_urls)
+# print(soup.prettify())
 
 
 # storing data to CSV
@@ -455,16 +459,19 @@ def get_data(html):
 # Finding first div with 'id'
     h1 = soup.find('div', id='home-welcome').find('header').find('h1').text
     return h1
-
+  
+  # some EXAMPLES
   #  soup.find_all('p')[2].get_text()
   #  soup.find_all(class_='some_name')
-
+  #  soup.find_all('p', class_='chorus')
+  #  soup.find_all(id='third')
   
 def main():
     url = 'https://... .org/'
     print(get_data(get_html(url)))
 # for print html-docum. :  
 # print(get_html(url))
+#  print(soup.prettify())
 
 if __name__ == '__main__':
     main()
