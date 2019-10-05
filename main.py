@@ -293,9 +293,9 @@ from urllib.request import urlopen
 from bs4 import BeautifulSoup 
 
 html = urlopen('https://')
-bs = BeautifulSoup(html, 'html.parser')
-for link in bs.find_all('a'):
-    if 'href' in link.attrs:
+bs = BeautifulSoup(html, 'html.parser')   # soup = BeautifulSoup(page.text, 'html.parser')
+for link in bs.find_all('a'):           
+    if 'href' in link.attrs:             
         print(link.attrs['href'])
 """
 
@@ -317,7 +317,7 @@ def download_file(url):
 
 def get_file(url):
     html = requests.get(url).text
-    soup = BeautifulSoup(html, 'lxml')
+    soup = BeautifulSoup(html, 'lxml')  #  # soup = BeautifulSoup(page.text, 'html.parser')
     try:
         video_url = soup.find('div', id='page_wrap').find('source').get('src').split('?')[0]
     except:
@@ -451,12 +451,15 @@ print(soup.prettify)
 
 # convert html to python objects
 def get_data(html):
-    soup = BeautifulSoup(html, 'lxml')
+    soup = BeautifulSoup(html, 'lxml')  # # soup = BeautifulSoup(page.text, 'html.parser')
 # Finding first div with 'id'
     h1 = soup.find('div', id='home-welcome').find('header').find('h1').text
     return h1
 
+  #  soup.find_all('p')[2].get_text()
+  #  soup.find_all(class_='some_name')
 
+  
 def main():
     url = 'https://... .org/'
     print(get_data(get_html(url)))
