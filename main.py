@@ -46,6 +46,12 @@ def name_img(url):
   return names.append(new_name)
 """
 
+"""
+soup = BeautifulSoup(text)
+film_list = soup.find('div', {'class': 'profileFilmsList'})
+or
+movie_link = item.find('div', {'class': 'nameRus'}).find('a').get('href')
+"""
 
 # VERY  important , use Timeouts for prevent failure of programm  !!!
 #  if no timeout is specified explicitly, requests do not time out !!!
