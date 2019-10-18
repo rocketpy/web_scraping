@@ -33,6 +33,15 @@ for p in html.select('p'):
 """
 
 """
+import csv
+
+with open('test.csv', 'rb') as csvfile:
+     spamreader = csv.reader(csvfile, delimiter=';', quotechar='"')
+     for row in spamreader:
+         print ', '.join(row)
+"""
+
+"""
 #  snippet for naming of imgs
 import random
 import requests
