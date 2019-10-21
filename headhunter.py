@@ -8,7 +8,7 @@ headers = {'accept':'*/*',    # accept using on web-page , where we using search
 base_url = 'https://hh.ua'  # https://hh.ua/search/vacancy?area=5&st=searchVacancy&text=Intern+data+analyst&from=suggest_post
 
 def hh_parse():
-    session = requests.Session()
+    session = requests.Session()   # when we using session , website understanding what all requests from only one browser
     req = session.get(base_url, headers=headers)
     if req.status_code == 200:
         print('Succes')
