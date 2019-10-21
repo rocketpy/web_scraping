@@ -1,3 +1,4 @@
+import csv
 import requests 
 from bs4 import BeautifulSoup as bs
 
@@ -12,7 +13,7 @@ def hh_parse():
     req = session.get(base_url, headers=headers)
     if req.status_code == 200:
         print('Succes')
-        soup = bs(req.content, 'html.parser')
+        soup = bs(req.content, 'lxml')
         divs = soup.find_all('div', attrs={'data': 'vacancy'})
         for div in divs:
             title = div.find('a', attrs={'data_1': 'vacancy_1'}).text
@@ -21,5 +22,11 @@ def hh_parse():
         print()
     else:
         print('Error')
+
+
+def data_to_file(data):
+    with open('file_name.csv', 'a') as f:
+           writr = csv.writer(f)
+           writr.writerow(())
   
 hh_parse(base_url, headers)
