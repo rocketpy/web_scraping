@@ -3,6 +3,7 @@ import time
 import requests
 from random import choice
 from multiprocessing import Pool
+#  https://docs.python.org/3/library/multiprocessing.html
 
 
 proxs = {'http': 'http:// ... ',
@@ -122,4 +123,20 @@ results = pool.map(urllib2.urlopen, urls)
 # 13 Pool
 pool = ThreadPool(13)
 results = pool.map(urllib2.urlopen, urls)
+"""
+
+#  some a few examples
+
+"""
+from multiprocessing import Pool
+
+def f(x):
+    return x*x
+
+if __name__ == '__main__':
+    with Pool(5) as p:
+        print(p.map(f, [1, 2, 3]))
+"""
+"""
+
 """
