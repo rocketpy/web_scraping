@@ -1,9 +1,9 @@
+import csv
 import requests
 from bs4 import BeautifulSoup
 
 
 url = 'https://minfin.com.ua/currency/'
-
 r = requests.get(url)
 response = r.text
 soup = BeautifulSoup(response)
