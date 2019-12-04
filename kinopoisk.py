@@ -62,3 +62,29 @@ while True:
     else:
             break
 """
+
+
+#  IMDB Scraper
+
+"""
+
+import sys
+import re
+import json
+import urllib2
+from BeautifulSoup import BeautifulSoup
+
+
+title = raw_input("Please enter a movie title: ")
+year = raw_input("which year? ")
+raw_string = re.compile(r' ')
+searchstring = raw_string.sub('+', title)
+
+print(searchstring)
+
+url = "http://www.imdbapi.com/?t=" + searchstring + "&y="+year
+request = urllib2.Request(url)
+response = json.load(urllib2.urlopen(request))
+
+print(json.dumps(response, indent=2))
+"""
