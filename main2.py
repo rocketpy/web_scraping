@@ -67,3 +67,35 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+    
+"""
+from time import sleep
+from bs4 import BeautifulSoup
+import requests
+
+head = {'User-Agent': 'Mozilla/4.0 (compatible; MSIE 6.0; AOL 9.0; Windows NT 5.1)'}
+proxi = {
+        'http': 'http://195.9.149.198:8081',
+        }
+
+time_to_sleep_when_captcha = 5
+query = input('What are you searching for?:  ')
+number = input('How many pages:  ')
+url = 'http://www.google.com/search?q='
+page = requests.get(url + query, headers=head, proxies=proxi)
+for index in range(int(number)):
+    try:
+        soup = BeautifulSoup(page.text, "html.parser")
+        next_page = soup.find("a", class_="fl")
+        next_link = ("https://www.google.com" + next_page["href"])
+        h3 = soup.find_all("h3", class_="r")
+        for elem in h3:
+            elem = elem.contents[0]
+            link = ("https://www.google.com" + elem["href"])
+            print(link)
+        page = requests.get(next_link)
+    except:
+        sleep(time_to_sleep_when_captcha)
+        time_to_sleep_when_captcha += 1
+"""
