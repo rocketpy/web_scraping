@@ -1,3 +1,12 @@
+#  get text of web_page
+import requests
+
+response = requests.get("https://en.wikipedia.org/robots.txt")
+test = response.text
+
+print(test)
+
+
 #  test for a given page is found or not on the server
 from urllib.request import urlopen
 from urllib.error import HTTPError
