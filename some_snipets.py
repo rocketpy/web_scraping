@@ -7,6 +7,18 @@ test = response.text
 print(test)
 
 
+# get the number of datasets currently listed on data.gov
+import requests
+from lxml import html
+
+resp = requests.get('http://www.data.gov/')
+doc = html.fromstring(resp.text)
+link = doc.cssselect('small a')[0]
+print("Number is : ")
+print(link.text)
+
+
+
 #  test for a given page is found or not on the server
 from urllib.request import urlopen
 from urllib.error import HTTPError
