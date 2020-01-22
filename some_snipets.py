@@ -8,12 +8,22 @@ print(test)
 
 
 #  extract h1 tag from example
-from urllib.request import urlopen
 from bs4 import BeautifulSoup
+from urllib.request import urlopen
 
 html = urlopen('http://www.example.com/')
 h_1 = BeautifulSoup(html.read(), 'html.parser')
 print(h_1.h1)
+
+
+#  extract and display all the header tags
+from bs4 import BeautifulSoup
+from urllib.request import urlopen
+
+html = urlopen('https://.com')
+bs = BeautifulSoup(html, "html.parser")
+titles = bs.find_all(['h1', 'h2','h3','h4','h5','h6'])
+print('List all the header tags :', *titles, sep='\n\n')
 
 
 # get the number of datasets currently listed on data.gov
