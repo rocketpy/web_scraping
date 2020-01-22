@@ -7,6 +7,15 @@ test = response.text
 print(test)
 
 
+#  extract h1 tag from example
+from urllib.request import urlopen
+from bs4 import BeautifulSoup
+
+html = urlopen('http://www.example.com/')
+h_1 = BeautifulSoup(html.read(), 'html.parser')
+print(h_1.h1)
+
+
 # get the number of datasets currently listed on data.gov
 import requests
 from lxml import html
