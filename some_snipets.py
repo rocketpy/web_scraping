@@ -1,4 +1,4 @@
-#  get text of web_page
+#  download and display the content of robot.txt
 import requests
 
 response = requests.get("https://en.wikipedia.org/robots.txt")
@@ -62,3 +62,32 @@ except URLError as e:
 else:
     print("HTML Details")    
     print(html.read())  
+
+    
+#  check whether a page contains a title or not
+from bs4 import BeautifulSoup
+from urllib.request import urlopen
+from urllib.error import HTTPError
+
+
+def get_title(url):
+    try:
+        html = urlopen(url)
+    except HTTPError as e:
+        return None
+    try:
+        bsObj = BeautifulSoup(html.read(), "lxml")
+        title = bsObj.body.h1
+    except AttributeError as e:
+        return None
+    return title
+    
+    title = get_title(url)
+    if title == None:
+      return "Title could not be found !"
+    else:
+      return title
+
+print(get_title("https://www..com/"))
+print(get_title("http://www..com/"))  
+    
