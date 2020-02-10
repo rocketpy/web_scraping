@@ -4,11 +4,13 @@
 #  creating a spider and URL
 #  scrapy genspider name_spider blablabla.com/posts/
 
+#  for run file with a our spider use:  scrapy crawl file_name
+
 import scrapy
 
 
 class MySpider(scrapy.Spider):
-    name = "name of spider"
+    name = "name of spider"  # here we can use file_name for name of spider !!!
     
     def start_requests(self):
         self.index = 0
