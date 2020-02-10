@@ -19,3 +19,11 @@ class MySpider(scrapy.Spider):
         for url in urls:
             #  make a request to each url !!! 
             yield scrapy.Request(url=url, callback=self.parse)
+            
+            
+    def parse(self, response):
+        file_name = "response" + str(self.index)
+        #  save response as a text file
+        with open(file_name, 'wb') as f:        
+            f.write(response.body)
+        self.log('Saved file %s' % filename)
