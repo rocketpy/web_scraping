@@ -29,3 +29,20 @@ class MySpider(scrapy.Spider):
         with open(file_name, 'wb') as f:        
             f.write(response.body)
         self.log('Saved file %s' % filename)
+        
+#  for taking url of imgs  use:
+#  response.xpath(‘//a/@href’)
+
+def imgs_to_html(img_url):
+  return '<img width=\'30%\' height=\'30%\' src=\''+ img_url +'\' > </img><br/> '
+
+def parse(self, response):
+        final = ''
+        for i in response.xpath('//a/@href'):
+            img_url = i.extract()
+            if img_url.endswith('.jpg') or img_url.endswith('.png'):
+                final += imgs_to_html(img_url)
+                # print(img_url) 
+        with open('images.html', 'a') as links:
+            links.write(final)
+        links.close()
