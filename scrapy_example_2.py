@@ -5,6 +5,14 @@
 #  scrapy genspider name_spider blablabla.com/posts/
 
 #  for run file with a our spider use:  scrapy crawl file_name
+"""
+#  use a specific proxy for that URL we can pass it as a meta parameter
+def start_requests(self):
+    for url in self.start_urls:
+        return Request(url=url, callback=self.parse,
+                       headers={"User-Agent": "My UserAgent"},
+                       meta={"proxy": "http://191.175.1.1:8050"})
+"""
 
 import scrapy
 
