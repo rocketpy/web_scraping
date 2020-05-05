@@ -8,4 +8,6 @@ driver = webdriver.Chrome(path)
 driver.get("https:// ... ")
 
 # print(driver.title)
+some_elem = driver.find_element_by_name("some_name")
+
 driver.quit()
