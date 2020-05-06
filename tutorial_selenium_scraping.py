@@ -2,6 +2,9 @@ import os
 import time
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 
 path = "C:\Program Files\chromedriver.exe"  # or any other path
@@ -16,18 +19,19 @@ search = driver.find_element_by_name("some_name")  # tag name
 search.send_keys("test")
 search.send_keys(Keys.RETURN)
 
+#  adding waits ( using for waiting a result )
 try:
-    element = WebDriverWait(driver, 10).until(
-        EC.presence_of_element_located((By.ID, "myDynamicElement"))
+    some_elem = WebDriverWait(driver, 10).until(  # 10 seconds
+        EC.presence_of_element_located((By.ID, "some_name"))  #  By.NAME , By.TAG_NAME , By.CLASS_NAME
     )
-finally:
+except:  # or finally
     driver.quit()
 
 # find elem by id
-some_elem = driver.find_element_by_id("some_name")
-print(some_elem.text)
+# some_elem = driver.find_element_by_id("some_name")
+# print(some_elem.text)
 
 #  need a few seconds for waiting a result
-time.sleep(5)
+# time.sleep(5)
 
-driver.quit()  # or driver.close()
+# driver.quit()  # or driver.close()
