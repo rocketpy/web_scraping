@@ -17,16 +17,23 @@ driver.get("https:// ... ")
 # search data with input on web_page ( search field )
 search = driver.find_element_by_name("some_name")  # tag name
 search.send_keys("test")
-search.send_keys(Keys.RETURN)
+search.send_keys(Keys.RETURN)  # 
 
 #  adding waits ( using for waiting a result )
 try:
     some_elem = WebDriverWait(driver, 10).until(  # 10 seconds
         EC.presence_of_element_located((By.ID, "some_name"))  #  By.NAME , By.TAG_NAME , By.CLASS_NAME
     )
-except:  # or finally
+    # print(some_elem.text)
+    articles = some_elem.find_elements_by_tag_name("tag_name")
+    for article in articles:
+        header = article.find_element_by_class_name("some_name")
+        print(header.text)
+
+finally:
     driver.quit()
 
+    
 # find elem by id
 # some_elem = driver.find_element_by_id("some_name")
 # print(some_elem.text)
