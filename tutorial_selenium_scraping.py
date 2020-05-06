@@ -4,14 +4,16 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
 
-path = "C:\Program Files\chromedriver.exe"  # or any path
+path = "C:\Program Files\chromedriver.exe"  # or any other path
 
 driver = webdriver.Chrome(path)
 driver.get("https:// ... ")
+# print(driver.title)  using this for test !
 
-# print(driver.title)
-some_elem = driver.find_element_by_name("some_name")
-some_elem.send_keys("test")
-some_elem.send_keys(Keys.RETURN)
+# search data with input on web_page
+search = driver.find_element_by_name("some_name")  # tag name
+search.send_keys("test")
+search.send_keys(Keys.RETURN)
 
-driver.quit()
+
+driver.quit()  # or driver.close()
