@@ -14,6 +14,13 @@ driver = webdriver.Chrome(path)
 driver.get("https:// ... ")
 # print(driver.title)  using this for test !
 
+
+#  Clicking elements , like buttons or links !
+link = driver.find_element_by_link_text("link_name")  # name on page
+link.click()
+
+
+
 # search data with input on web_page ( search field )
 search = driver.find_element_by_name("some_name")  # tag name
 search.send_keys("test")
