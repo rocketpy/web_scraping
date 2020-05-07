@@ -18,6 +18,13 @@ driver.get("https:// ... ")
 #  Clicking elements , like buttons or links !
 link = driver.find_element_by_link_text("link_name")  # name on page
 link.click()
+try:
+    some_link = WebDriverWait(driver, 10).until(  # 10 seconds
+        EC.presence_of_element_located((By.LINK_TEXT, "some_link_name")) 
+        some_link.click()
+    )
+finally:
+    driver.quit()
 
 
 
