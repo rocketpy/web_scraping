@@ -34,6 +34,11 @@ except:
 # or
 finally:
     driver.quit()
+    
+    
+    
+#  for search element with xpath use :
+# search_button = driver.find_element_by_xpath("xpath_of_element")
 
 
 
@@ -59,8 +64,8 @@ finally:
     driver.quit()
 
     
-# find elem by id
-# some_elem = driver.find_element_by_id("some_name")
+
+# some_elem = driver.find_element_by_id("some_name")  # find elem by id
 # print(some_elem.text)
 
 #  need a few seconds for waiting a result
