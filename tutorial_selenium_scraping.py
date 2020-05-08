@@ -5,6 +5,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.action_chains import ActionChains 
 
 
 path = "C:\Program Files\chromedriver.exe"  # or any other path
@@ -40,6 +41,11 @@ finally:
 #  for search element with xpath use :
 # search_button = driver.find_element_by_xpath("xpath_of_element")
 
+
+# how use ActionChains
+driver = webdriver.Chrome(path) 
+driver.get("https:// ... ")
+action = AtionChains(driver)
 
 
 # search data with input on web_page ( search field )
