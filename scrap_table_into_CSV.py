@@ -1,3 +1,4 @@
+#  TUTORIAL : https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_csv.html
 import requests
 import pandas as pd
 fro bs4 import BeautifulSoup
@@ -23,6 +24,12 @@ for i in range(1, len(rows)):
         values = [td.text.replace('\n', '').replace('\xx', '') for td in tds]  # use replace for cleaning a text
         
     df = df.append(pd.Series(values, index=columns), ignore_index=True)
-    df.to_csv(r'path to directory', 'file_name.csv', index=False)
+    df.to_csv('file_name.csv', index=False)  # sometime need add :  r'path to directory'
     
+    
+#  just a simple example
+df = pd.DataFrame({'name': ['John', 'Jack'],
+                   'surname': ['Doe', 'Gray'],
+                   'age': ['35', '45']})
+df.to_csv('file_name.csv', index=False)
 
