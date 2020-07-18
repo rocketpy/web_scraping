@@ -19,3 +19,11 @@ search_bar_xpath = '//*[@id="lst-ib"]'
 # index 0 to select from the list
 search_bar = browser.find_by_xpath(search_bar_xpath)[0]
 
+# Now let's set up code to click the search button!
+search_button_xpath = '//*[@id="tsf"]/div[2]/div[3]/center/input[1]' 
+search_button = browser.find_by_xpath(search_button_xpath)[0] 
+search_button.click()
+
+search_results_xpath = '//h3[@class="r"]/a' # simple, right?
+
+search_results = browser.find_by_xpath(search_results_xpath)
