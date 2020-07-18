@@ -23,6 +23,7 @@ browser.fill('q', 'some_text or some_words')
 search_button_xpath = 'xpath' 
 search_button = browser.find_by_xpath(search_button_xpath)[0] 
 search_button.click()
+#  or browser.find_by_name('').click()
 
 search_results_xpath = '//h3[@class="r"]/a'  # all classes r with a tags
 search_results = browser.find_by_xpath(search_results_xpath)
