@@ -37,6 +37,7 @@ for i in search_results:
      link = search_result["href"]
      scraped_data.append((title, link))
     
-#  need add export scrapped data to CSV file with pandas    
+df = pd.DataFrame(data, columns=['title', 'link'])  
+df.to_csv("links.csv", index=False, encoding='utf-8') 
 
 browser.quit()
