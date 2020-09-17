@@ -24,3 +24,9 @@ results = asession.run(get_pythonorg, get_reddit, get_google)
 
 for result in results:
     print(result.html.url)
+
+#  grab a list of all links
+lnks = r.html.links
+
+#  select an element with a CSS selector
+about = r.html.find('#about', first=True)
