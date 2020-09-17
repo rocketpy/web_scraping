@@ -30,3 +30,12 @@ lnks = r.html.links
 
 #  select an element with a CSS selector
 about = r.html.find('#about', first=True)
+
+#  grab an element's text contents
+print(about.text)
+
+#  introspect an element's attributes
+print(about.attrs)
+
+#  render out an element's HTML
+print(about.html)
