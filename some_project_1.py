@@ -21,3 +21,16 @@ first.find_all('span')
 # cleaning data
 data = first.find_all('span').text
 data_cl = data.replace('xxx', '')
+
+
+#  write data to file
+cols = ['Title', 'Price', 'Size', 'Description', 'Date', 'URL', 'Image']
+data_to_file = pd.DataFrame({'Title': titles,
+                             'Price': prices,
+                             'Date': created,
+                             'Status': condition,
+                             'Description': descriptions,
+                             'URL': urls,
+                             'Image': thumbnails})[cols]
+
+data_to_file.to_excel('result.xls')
