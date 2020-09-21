@@ -23,6 +23,7 @@ thumbnails = []
 response = get(URL, headers=headers)
 soup = BeautifulSoup(response.text, 'html.parser')
 some_containers = html_soup.find_all('div', class_="searchResultProperty")
+
 first = some_containers[0]
 first.find_all('span')
 
@@ -33,14 +34,14 @@ data_cl = data.replace('xxx', '')
 num_pages = 0
 for page in range(0, 100):
     num_pages += 1
-
-titles = 
-created = 
-prices = 
-condition = 
-descriptions = 
-urls = 
-thumbnails = 
+    URL = 'https://...'+str(page)
+    r = get(sapo_url, headers=headers)
+    page_html = BeautifulSoup(r.text, 'html.parser')
+    house_containers = page_html.find_all('div', class_="searchResultProperty")
+    if house_containers != []:
+        for container in house_containers:
+            name_t = container.find_all('span')[0].text
+            titles.append(name_t)
 
 
 #  write data to file
