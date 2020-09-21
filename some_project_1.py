@@ -30,6 +30,18 @@ first.find_all('span')
 data = first.find_all('span').text
 data_cl = data.replace('xxx', '')
 
+num_pages = 0
+for page in range(0, 100):
+    num_pages += 1
+
+titles = 
+created = 
+prices = 
+condition = 
+descriptions = 
+urls = 
+thumbnails = 
+
 
 #  write data to file
 cols = ['Title', 'Price', 'Size', 'Description', 'Date', 'URL', 'Image']
