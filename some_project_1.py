@@ -46,7 +46,20 @@ for page in range(0, 100):
             # title
             name = container.find_all('span')[0].text
             titles.append(name)
-
+            
+            # price            
+            price = container.find_all('span')[2].text
+            if price == 'Contacte Anunciante':
+                price = container.find_all('span')[3].text
+            if price.find('/') != -1:
+                price = price[0:price.find('/')-1]
+            if price.find('/') != -1:
+                price = price[0:price.find('/')-1]
+            price_ = [int(price[s]) for s in range(0,len(price)) if price[s].isdigit()]
+            price = ''
+            for x in price_:
+                price = price+str(x)
+                prices.append(int(price))
 
 #  write data to file
 cols = ['Title', 'Price', 'Size', 'Description', 'Date', 'URL', 'Image']
