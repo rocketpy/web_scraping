@@ -42,6 +42,10 @@ for page in range(0, 100):
         for container in house_containers:
             name_t = container.find_all('span')[0].text
             titles.append(name_t)
+            
+            # title
+            name = container.find_all('span')[0].text
+            titles.append(name)
 
 
 #  write data to file
