@@ -61,6 +61,10 @@ for page in range(0, 100):
                 price = price+str(x)
                 prices.append(int(price))
 
+            #  date
+            date = pd.to_datetime(container.find_all('div', class_="searchPropertyDate")[0].text[21:31])
+            created.append(date)
+            
 #  write data to file
 cols = ['Title', 'Price', 'Size', 'Description', 'Date', 'URL', 'Image']
 data_to_file = pd.DataFrame({'Title': titles,
