@@ -65,6 +65,14 @@ for page in range(0, 100):
             date = pd.to_datetime(container.find_all('div', class_="searchPropertyDate")[0].text[21:31])
             created.append(date)
             
+            # description
+            desc = container.find_all('p', class_="searchPropertyDescription")[0].text[7:-6]
+            descriptions.append(desc)
+            
+            # url
+            link = 'https://casa.sapo.pt/' + container.find_all('a')[0].get('href')[1:-6]
+            urls.append(link)
+            
 #  write data to file
 cols = ['Title', 'Price', 'Size', 'Description', 'Date', 'URL', 'Image']
 data_to_file = pd.DataFrame({'Title': titles,
