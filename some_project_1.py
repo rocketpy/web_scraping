@@ -73,6 +73,12 @@ for page in range(0, 100):
             link = 'https://casa.sapo.pt/' + container.find_all('a')[0].get('href')[1:-6]
             urls.append(link)
             
+            # image
+            img = str(container.find_all('img')[0])
+            img = img[img.find('data-original_2x=')+18:img.find('id=')-2]
+            thumbnails.append(img)
+            
+            
 #  write data to file
 cols = ['Title', 'Price', 'Size', 'Description', 'Date', 'URL', 'Image']
 data_to_file = pd.DataFrame({'Title': titles,
