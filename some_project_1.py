@@ -78,7 +78,12 @@ for page in range(0, 100):
             img = img[img.find('data-original_2x=')+18:img.find('id=')-2]
             thumbnails.append(img)
             
-            
+            else:
+                break
+                
+# sleep(randint(1,2))
+# print('You scraped {} pages containing {} properties.'.format(n_pages, len(titles)))
+                
 #  write data to file
 cols = ['Title', 'Price', 'Size', 'Description', 'Date', 'URL', 'Image']
 data_to_file = pd.DataFrame({'Title': titles,
