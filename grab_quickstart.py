@@ -15,6 +15,11 @@ resp = g.go('http://google.com/robots.txt')
 print(len(resp.body))
 print(resp.headers['Content-Length'])
 
+#  creating a POST request
+g = Grab()
+g.setup(post={'username': 'Root', 'password': 'asd7DD&*ssd'})
+g.go('http://example.com/log-in-form')
+
 
 #  set some methods
 """
