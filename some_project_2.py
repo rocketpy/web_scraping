@@ -10,9 +10,16 @@ from selenium.webdriver.support.ui import WebDriverWait
 EMAIL = ""
 PASSWORD = ""
 
-# got to previous url use:  driver.back()
-# go to next url use:  driver.forward() 
+driver.get('https://www.swagbucks.com/')
 
-driver.get('https://')
+search = driver.find_element_by_xpath('//*[@id="sbxJxRegEmail"]')
+time.sleep(1)
+search.send_keys(EMAIL) 
 
+search = driver.find_element_by_xpath('//*[@id="sbxJxRegPswd"]')
+time.sleep(1)
+search.send_keys(PASSWORD) 
+
+login_button = driver.find_element_by_xpath('//*[@id="loginBtn"]')
+login_button.click() 
 
