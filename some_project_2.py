@@ -1,10 +1,14 @@
-driver = webdriver.Chrome(path)
+import time
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import WebDriverWait
 
-driver.get("https:// ... ")
 
-# add your ID and password for VK account
-vk_number = ""
-vk_password = ""
+# driver = webdriver.Chrome(path)
+
+EMAIL = ""
+PASSWORD = ""
 
 # got to previous url use:  driver.back()
 # go to next url use:  driver.forward() 
