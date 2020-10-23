@@ -24,6 +24,9 @@ search.send_keys(PASSWORD)
 login_button = driver.find_element_by_xpath('//*[@id="loginBtn"]')
 login_button.click() 
 
+survey = driver.find_element_by_xpath('//*[@id="mainNavMainList"]/li[1]/a')
+survey.click() 
+
 choose = driver.find_element_by_xpath('//*[@id="middleInner"]/div[1]/div[2]/div[2]/div[2]/div/div[2]/div/div[1]/div/span[2]')
 choose.click() 
 
