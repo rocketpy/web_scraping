@@ -30,10 +30,7 @@ survey.click()
 choose = driver.find_element_by_xpath('//*[@id="middleInner"]/div[1]/div[2]/div[2]/div[2]/div/div[2]/div/div[1]/div/span[2]')
 choose.click() 
 
-while chose.is_displayed():
-
-    rand_int = random.randint(0, 2)
-
+def cycle():
     first = driver.find_element_by_xpath('//*[@id="middleInner"]/div[1]/div[2]/div[2]/div[2]/div/div[2]/div/div[1]/div/div/span[1]/span')
     first.click() 
 
@@ -42,3 +39,9 @@ while chose.is_displayed():
 
     answer = driver.find_element_by_xpath('//*[@id="middleInner"]/div[1]/div[2]/div[2]/div[2]/div/div[2]/div/div[2]/button')
     answer.click()
+
+while chose.is_displayed():
+
+    rand_int = random.randint(0, 2)
+
+
