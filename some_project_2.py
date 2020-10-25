@@ -32,6 +32,10 @@ choose.click()
 
 rand_int = random.randint(1, 2)
 
+#  cookies = driver.get_cookies()
+#  print(cookies)
+#  print(len(cookies))
+
 def cycle(rand):
     if rand == 1:
         first = driver.find_element_by_xpath('//*[@id="middleInner"]/div[1]/div[2]/div[2]/div[2]/div/div[2]/div/div[1]/div/div/span[1]/span')
