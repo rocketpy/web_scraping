@@ -45,7 +45,8 @@ def cycle(rand):
         answer.click()
         time.sleep(3)
         driver.delete_cookies()
-        # driver.delete_cookies('cookies_name')
+        # driver.delete_cookies('cookies_name')  use get_cookies() for take a name 
+        time.sleep(2)
     else:
         second = driver.find_element_by_xpath('//*[@id="middleInner"]/div[1]/div[2]/div[2]/div[2]/div/div[2]/div/div[1]/div/div/span[2]/span')
         second.click()
@@ -54,6 +55,8 @@ def cycle(rand):
         answer.click()
         time.sleep(3)
         driver.delete_cookies()
+        # driver.delete_cookies('cookies_name')
+        time.sleep(2)
     
 while choose.is_displayed():
     cycle(rand_int)
