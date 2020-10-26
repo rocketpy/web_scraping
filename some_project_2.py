@@ -13,6 +13,10 @@ PASSWORD = ""
 
 driver.get('https://www.')
 
+login_btn = driver.find_element_by_xpath('//*[@id="sbLogInCta"]')
+login_btn.click()
+time.sleep(3)
+
 search = driver.find_element_by_xpath('//*[@id="sbxJxRegEmail"]')
 time.sleep(1)
 search.send_keys(EMAIL) 
