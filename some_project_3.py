@@ -17,4 +17,6 @@ for i in range()0, 800, 20):
         person_page_url = person.get('href')
         persons_url_list.append(person_page_url)
     
-    
+with open('persons_url_list.txt', 'a') as file:
+    for line in persons_url_list:
+        file.write(f'{line}\n')
