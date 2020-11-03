@@ -35,7 +35,11 @@ login_button.click()
 answer = driver.find_element_by_xpath('//*[@id="sbMainNavSectionListItemAnswer"]/a')
 answer.click() 
 
-# Choose:  //*[@id="middleInner"]/div[1]/div[2]/div[2]/div[2]/div/div[2]/div/div[1]/div/span[2]
+# first_check_box = "//*[@id="middleInner"]/div[1]/div[2]/div[2]/div[2]/div/div[2]/div/div[1]/div/div/span[1]/span"
+# second_check_box = "//*[@id="middleInner"]/div[1]/div[2]/div[2]/div[2]/div/div[2]/div/div[1]/div/div/span[2]/span"
+# third_check_box = "//*[@id="middleInner"]/div[1]/div[2]/div[2]/div[2]/div/div[2]/div/div[1]/div/div/span[3]/span"
+
+# Choose field:  //*[@id="middleInner"]/div[1]/div[2]/div[2]/div[2]/div/div[2]/div/div[1]/div/span[2]
 # Answer:  //*[@id="middleInner"]/div[1]/div[2]/div[2]/div[2]/div/div[2]/div/div[2]/button
 
 choose = driver.find_element_by_xpath("//*[@id="middleInner"]/div[1]/div[2]/div[2]/div[2]/div/div[2]/div/div[2]/button")
