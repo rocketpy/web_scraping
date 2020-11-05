@@ -11,7 +11,13 @@ from selenium.webdriver.support.ui import WebDriverWait
 EMAIL = ""
 PASSWORD = ""
 
+# to maximize the browser window
+# driver.maximize_window()
+
 driver.get('https://www.')
+
+# to refresh the browser
+# driver.refresh()
 
 login_btn = driver.find_element_by_xpath('//*[@id="sbLogInCta"]')
 login_btn.click()
@@ -37,6 +43,11 @@ answer.click()
 
 #  driver.find_element_by_xpath("").get_attribute('checked')
 #  driver.find_element_by_xpath("").click()
+
+#  or best way to click on Check_box
+
+box = driver.find_element_by_xpath("")
+driver.execute_script("arguments[0].click();",box)
 
 # first_check_box = "//*[@id="middleInner"]/div[1]/div[2]/div[2]/div[2]/div/div[2]/div/div[1]/div/div/span[1]/span"
 # second_check_box = "//*[@id="middleInner"]/div[1]/div[2]/div[2]/div[2]/div/div[2]/div/div[1]/div/div/span[2]/span"
