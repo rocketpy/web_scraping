@@ -18,17 +18,24 @@ def parse():
     req = session.get(base_url, headers=headers)
 """
 
-def get_html():
+def get_html(url):
     driver = webdriver.Firefox(executable_path=PATH)
     driver.get('https://')
-    html = browser.page_source
+    return driver.page_source
+    
 
 def main():
-    driver = webdriver.Firefox(executable_path=PATH)
-    driver.get('https://')
-    html = browser.page_source
+    url = 'https://'  # base_url = 'https://'
+    html = get_html(url)
     soup = bs(html, 'lxml')
-    cards = soup.find_all('div')
+    cards = soup.find_all('div')  # return a list 
+    for card in cards:
+        name = card.h2
+        title = name.text.strip()
+        url = name.a.get('href')
+        
+        price
 
+    
 if __name__ == '__main__':
     main()
