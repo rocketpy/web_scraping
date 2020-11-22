@@ -3,6 +3,8 @@ from selenium import webdriver
 from bs4 import BeautifulSoup as bs
 
 
+# here is example of scraping heavy AJAX driven website !!!
+
 # PATH = "C:\Program Files\chromedriver.exe" 
 # driver = webdriver.Chrome(PATH) 
 PATH = str(Path('geckodriver').resolve())
@@ -16,12 +18,17 @@ def parse():
     req = session.get(base_url, headers=headers)
 """
 
+def get_html():
+    driver = webdriver.Firefox(executable_path=PATH)
+    driver.get('https://')
+    html = browser.page_source
+
 def main():
     driver = webdriver.Firefox(executable_path=PATH)
     driver.get('https://')
     html = browser.page_source
     soup = bs(html, 'lxml')
-    
+    cards = soup.find_all('div')
 
 if __name__ == '__main__':
     main()
