@@ -1,3 +1,4 @@
+import csv
 from pathlib import Path
 from selenium import webdriver
 from bs4 import BeautifulSoup as bs
@@ -18,6 +19,14 @@ def parse():
     req = session.get(base_url, headers=headers)
 """
 
+def write_data(ads):
+    with open('result.csv', 'a') as file:
+        cols = ['title', 'url', 'price']
+        writer = csv.DictWriter(file, fieldsname=cols)
+        
+        for ad in ads:
+            writer.writerow(ad)
+
 def get_html(url):
     driver = webdriver.Firefox(executable_path=PATH)
     driver.get('https://')
@@ -27,6 +36,10 @@ def get_html(url):
 def get_data(card):
     try:
         name = card.h2
+    except:
+        title = ''
+        url = ''
+    else:
         title = name.text.strip()
         url = name.a.get('href')     
         price = card.find('span', class_='').text.strip()
@@ -40,7 +53,13 @@ def main():
     html = get_html(url)
     soup = bs(html, 'lxml')
     cards = soup.find_all('div')  # return a list 
+    ad_data = []
     
+    for card in cards:
+        data = get_data(card)
+        ad_data.append(data)
+        
+    write_data(ad_data)
     
 if __name__ == '__main__':
     main()
