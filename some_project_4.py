@@ -23,19 +23,24 @@ def get_html(url):
     driver.get('https://')
     return driver.page_source
     
-
+    
+def get_data(card):
+    try:
+        name = card.h2
+        title = name.text.strip()
+        url = name.a.get('href')     
+        price = card.find('span', class_='').text.strip()
+        price = ''.join(price.split(','))
+    
+        data = {'title': title, 'url': url, 'price': price}
+        return data
+    
 def main():
     url = 'https://'  # base_url = 'https://'
     html = get_html(url)
     soup = bs(html, 'lxml')
     cards = soup.find_all('div')  # return a list 
-    for card in cards:
-        name = card.h2
-        title = name.text.strip()
-        url = name.a.get('href')
-        
-        price
-
+    
     
 if __name__ == '__main__':
     main()
