@@ -8,7 +8,9 @@ from bs4 import BeautifulSoup as bs
 
 # PATH = "C:\Program Files\chromedriver.exe" 
 # driver = webdriver.Chrome(PATH) 
+
 PATH = str(Path('geckodriver').resolve())
+driver = webdriver.Firefox(executable_path=PATH)
 
 # headers = {'accept':'*/*',    # accept using on web-page , where we using search 
 #            'user-agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0'}      
@@ -27,9 +29,9 @@ def write_data(ads):
         for ad in ads:
             writer.writerow(ad)
 
+            
 def get_html(url):
-    driver = webdriver.Firefox(executable_path=PATH)
-    driver.get('https://')
+    driver.get(url)
     return driver.page_source
     
     
@@ -48,18 +50,22 @@ def get_data(card):
         data = {'title': title, 'url': url, 'price': price}
         return data
     
-def main():
-    url = 'https://'  # base_url = 'https://'
-    html = get_html(url)
-    soup = bs(html, 'lxml')
-    cards = soup.find_all('div')  # return a list 
-    ad_data = []
     
-    for card in cards:
-        data = get_data(card)
-        ad_data.append(data)
+def main():
+    ad_data = []
+    #  adding pagination !!!
+    for page in range(1, 10):  # 10 pages , pagination
+        url = f'https://www...page={page}/' 
+        html = get_html(url)
+        soup = bs(html, 'lxml')
+        cards = soup.find_all('div', )  # return a list 
+    
+        for card in cards:
+            data = get_data(card)
+            ad_data.append(data)
         
     write_data(ad_data)
+    
     
 if __name__ == '__main__':
     main()
