@@ -13,10 +13,19 @@ URL = 'https://'
 PATH = str(Path('geckodriver').resolve())
 driver = webdriver.Firefox(executable_path=PATH)
 
-# accept using on web-page , where we using search 
+# accept using on web-page , where we using search !!!
 # headers = {'accept':'*/*', 'user-agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0'}  
 # or
 # headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0'} 
+"""
+resp = requests.get(URL, headers=headers)
+soup = bs(resp.content, 'html.parser')
+
+title = soup.find(id='productTitle').get_text()
+price = soup.find(id='price').get_text()
+
+# print(soup.prettify())
+"""
 
 """
 def parse():
