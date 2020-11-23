@@ -1,4 +1,5 @@
 import csv
+# import requests
 from pathlib import Path
 from selenium import webdriver
 from bs4 import BeautifulSoup as bs
@@ -8,13 +9,15 @@ from bs4 import BeautifulSoup as bs
 
 # PATH = "C:\Program Files\chromedriver.exe" 
 # driver = webdriver.Chrome(PATH) 
-
+URL = 'https://'
 PATH = str(Path('geckodriver').resolve())
 driver = webdriver.Firefox(executable_path=PATH)
 
-# headers = {'accept':'*/*',    # accept using on web-page , where we using search 
-#            'user-agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0'}      
-# base_url = 'https://'
+# accept using on web-page , where we using search 
+# headers = {'accept':'*/*', 'user-agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0'}  
+# or
+# headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0'} 
+
 """
 def parse():
     session = requests.Session()
