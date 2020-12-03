@@ -40,6 +40,8 @@ login_button.click()
 
 answer = driver.find_element_by_xpath('//*[@id="sbMainNavSectionListItemAnswer"]/a')
 answer.click() 
+# or by class_name  <span> class="surveyDropdownVal"
+
 
 #  driver.find_element_by_xpath("").get_attribute('checked')
 #  driver.find_element_by_xpath("").click()
@@ -50,6 +52,8 @@ box = driver.find_element_by_xpath("")
 driver.execute_script("arguments[0].click();",box)
 
 # first_check_box = "//*[@id="middleInner"]/div[1]/div[2]/div[2]/div[2]/div/div[2]/div/div[1]/div/div/span[1]/span"
+# or by value: <span data-index="0" data-value="1" onclick="sp.setAnswer(this, true)
+
 # second_check_box = "//*[@id="middleInner"]/div[1]/div[2]/div[2]/div[2]/div/div[2]/div/div[1]/div/div/span[2]/span"
 # third_check_box = "//*[@id="middleInner"]/div[1]/div[2]/div[2]/div[2]/div/div[2]/div/div[1]/div/div/span[3]/span"
 
