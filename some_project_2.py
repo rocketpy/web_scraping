@@ -55,13 +55,19 @@ driver.execute_script("arguments[0].click();",box)
 # or by value: <span data-index="0" data-value="1" onclick="sp.setAnswer(this, true)
 
 # second_check_box = "//*[@id="middleInner"]/div[1]/div[2]/div[2]/div[2]/div/div[2]/div/div[1]/div/div/span[2]/span"
+# or by value <span data-index="1" data-value="2" onclick="sp.setAnswer(this, true)
+
 # third_check_box = "//*[@id="middleInner"]/div[1]/div[2]/div[2]/div[2]/div/div[2]/div/div[1]/div/div/span[3]/span"
+# by value <span data-index="2" data-value="3" onclick="sp.setAnswer(this, true);
+
 
 # Choose field:  //*[@id="middleInner"]/div[1]/div[2]/div[2]/div[2]/div/div[2]/div/div[1]/div/span[2]
 # Answer:  //*[@id="middleInner"]/div[1]/div[2]/div[2]/div[2]/div/div[2]/div/div[2]/button
 
 choose = driver.find_element_by_xpath("//*[@id="middleInner"]/div[1]/div[2]/div[2]/div[2]/div/div[2]/div/div[2]/button")
 choose.click() 
+# or by class or by name: <button type="button" class="surveyDashboardCTA sbCta sbBgPrimaryColor" onclick="sp.saveAnswer();"
+# style="margin-top: 0px;">Answer</button>
 
 rand_int = random.randint(1, 2)
 
