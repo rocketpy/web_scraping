@@ -5,7 +5,29 @@ transparently exposing methods of both libraries
 """
 
 # Official website: http://robobrowser.readthedocs.org/
+# PyPi: https://pypi.org/project/robobrowser/
+
+# IMPORTANT need to check version Python !!! may be max version is Python 3.4 
 
 # Installation
 # mkvirtualenv robobrowser
 # pip install robobrowser
+
+import re
+from robobrowser import RoboBrowser
+
+
+browser = RoboBrowser(history=True)
+browser.open('http://rapgenius.com/')
+
+# search 
+form = browser.get_form(action='/search')
+# form                # <RoboForm q=>
+form['q'].value = 'queen'
+browser.submit_form(form)
+
+# look up the first song
+songs = browser.select('.song_name')
+browser.follow_link(songs[0])
+lyrics = browser.select('.lyrics')
+lyrics[0].text  
