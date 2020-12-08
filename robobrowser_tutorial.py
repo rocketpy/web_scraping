@@ -41,3 +41,19 @@ browser.follow_link('death on two legs')
 # can also search HTML using regex patterns
 lyrics = browser.find(class_=re.compile(r'\blyrics\b'))
 # lyrics.text  
+
+#  or
+import re
+from robobrowser import RoboBrowser
+
+
+browser = RoboBrowser(user_agent='a python robot')
+browser.open('https://github.com/')
+
+# inspect the browser session
+browser.session.cookies['_gh_sess']       
+browser.session.headers['User-Agent']      
+
+# search the parsed HTML
+browser.select('div.teaser-icon')  
+browser.find(class_=re.compile(r'column', re.I)) 
