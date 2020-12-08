@@ -31,3 +31,13 @@ songs = browser.select('.song_name')
 browser.follow_link(songs[0])
 lyrics = browser.select('.lyrics')
 lyrics[0].text  
+
+# back to results page
+browser.back()
+
+# look up my favorite song
+browser.follow_link('death on two legs')
+
+# can also search HTML using regex patterns
+lyrics = browser.find(class_=re.compile(r'\blyrics\b'))
+# lyrics.text  
