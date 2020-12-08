@@ -8,6 +8,7 @@ transparently exposing methods of both libraries
 # PyPi: https://pypi.org/project/robobrowser/
 
 # IMPORTANT need to check version Python !!! may be max version is Python 3.4 
+#  Python >= 2.6 or >= 3.3
 
 # Installation
 # mkvirtualenv robobrowser
@@ -57,3 +58,31 @@ browser.session.headers['User-Agent']
 # search the parsed HTML
 browser.select('div.teaser-icon')  
 browser.find(class_=re.compile(r'column', re.I)) 
+
+#  tools for working with forms
+from robobrowser import RoboBrowser
+
+
+browser = RoboBrowser()
+browser.open('http://twitter.com')
+
+# get the signup form
+signup_form = browser.get_form(class_='signup')
+signup_form         # <RoboForm user[name]=, user[email]=, ...
+
+# inspect its values
+signup_form['authenticity_token'].value     # 6d03597 ...
+
+# fill it out
+signup_form['user[name]'].value = 'python-robot'
+signup_form['user[user_password]'].value = 'secret'
+
+# serialize it to JSON
+signup_form.serialize()         # {'data': {'authenticity_token': '6d03597...',
+                                #  'context': '',
+                                #  'user[email]': '',
+                                #  'user[name]': 'python-robot',
+                                #  'user[user_password]': ''}}
+
+# and submit
+browser.submit_form(signup_form)
