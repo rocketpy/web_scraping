@@ -19,6 +19,18 @@ driver.get('https://www.')
 # to refresh the browser
 # driver.refresh()
 
+# working with cooclies
+"""
+driver.get("https://www...")
+driver.get_cookies() # to get coockies
+
+cookie = {‘name’ : ‘foo’, ‘value’ : ‘bar’}  # Add Cookie
+driver.add_cookie(cookie)
+driver.delete_cookie("foo")
+
+driver.delete_all_cookies()  # delete all coockies
+"""
+
 login_btn = driver.find_element_by_xpath('//*[@id="sbLogInCta"]')
 login_btn.click()
 time.sleep(3)
