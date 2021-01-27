@@ -4,6 +4,7 @@ import requests
 from random import choice
 from bs4 import BeautifulSoup
 from fake_useragent import UserAgent
+#  pip install fake-useragent
 
 
 proxs = {'https': 'http://'}
@@ -61,4 +62,3 @@ def main():
 if __name__ == '__main__':
     main()
     
-#  pip install fake-useragent
