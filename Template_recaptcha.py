@@ -1,9 +1,9 @@
-# importing modules
 import csv
 import random
 import requests
 from random import choice
 from bs4 import BeautifulSoup
+
 
 # get data , using proxy and user-agent
 def get_html(url, useragent=None, proxy=None):
@@ -99,3 +99,4 @@ for index in range(int(number)):
         sleep(time_to_sleep_when_captcha)
         time_to_sleep_when_captcha += 1
 """
+ 
