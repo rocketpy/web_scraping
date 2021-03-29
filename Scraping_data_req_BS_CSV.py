@@ -27,5 +27,17 @@ def get_data(html):
                       'product_link': URL + item.find('div', class_='title').find('a').get('href'),
                       'img': URL + item.find('div', class_='image').find('img').get('src')})
            
-           
-           
+    return elems
+
+
+def save_data(items, path):
+    with open(path, 'w', newline='') as f:
+        writer = csv.writer(f, delimeter=';')
+        writer.writerow(['Title', 'Product_Link', 'Image'])
+        for item in items:
+            writer.writerow([item['title'], item['product_link'], item['img']])
+
+
+if __name__ == '__main__':
+    get_html(get_data(save_data()))
+
