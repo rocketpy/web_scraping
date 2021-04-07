@@ -23,6 +23,12 @@ with open('names.csv', 'w') as csvfile:
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     writer.writeheader()
     writer.writerow({'first_name': 'Baked', 'last_name': 'Beans'})
+    
+# write csf file with Pandas
+import pandas as pd
+
+df = pd.DataFrame(data)
+df.to_csv('out.csv', index=True, sep='\t', encoding='utf-8')
 
 
 #  extract and display all the header tags
