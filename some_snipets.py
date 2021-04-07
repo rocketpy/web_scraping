@@ -15,6 +15,15 @@ html = urlopen('http://www.example.com/')
 h_1 = BeautifulSoup(html.read(), 'html.parser')
 print(h_1.h1)
 
+# write csv file
+import csv
+
+with open('names.csv', 'w') as csvfile:
+    fieldnames = ['first_name', 'last_name']
+    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+    writer.writeheader()
+    writer.writerow({'first_name': 'Baked', 'last_name': 'Beans'})
+
 
 #  extract and display all the header tags
 from bs4 import BeautifulSoup
