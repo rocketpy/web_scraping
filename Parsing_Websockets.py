@@ -12,3 +12,22 @@ async def hello():
 
 asyncio.get_event_loop().run_until_complete(hello())
 
+
+# one more example
+"""
+def on_message(ws, message):
+    print(message)
+
+def on_error(ws, error):
+    print(error)
+
+def on_close(ws):
+    print("Is closed !")
+
+def on_open(ws):
+    def run(*args):
+        for i in range(3):
+            time.sleep(1)
+            ws.send(data_orig)
+
+"""
