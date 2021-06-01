@@ -6,12 +6,11 @@ r = requests.get("http://...")
 # r.ip
 
 # For Python 3, need change  ip = r.raw._fp.fp.raw._sock.getpeername()
+
 """
 rsp = requests.get('http://...', stream=True)
 # grab the IP while you can, before you consume the body !
-
 print(rsp.raw._fp.fp._sock.getpeername())
-
 # consume the body, which calls the read(), after that fileno is no longer available.
 print(rsp.content)
 """
@@ -28,4 +27,10 @@ with requests.get("https://httpbin.org", stream=True) as response:
     # ('52.3.177.149', 443)
 """
 
-#
+# or
+"""
+with requests.get("https://httpbin.org", stream=True) as rsp:
+    ip, port = rsp.raw._connection.sock.getpeername()
+    print(ip, port)
+"""
+
