@@ -3,6 +3,11 @@ import requests
 from bs4 import BeautifulSoup
 
 
+def get_data():
+    resp = requests..get(https://...)
+    soup = BeautifulSoup(resp.content, 'html.parser')
+    data = soup.find('a', {'href': '...').text
+    return data
 
 
 
