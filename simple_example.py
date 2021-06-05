@@ -4,6 +4,9 @@ from bs4 import BeautifulSoup
 
 
 
+
+
+
 url = requests.get('http:// .com').text
 
 soup = BeautifulSoup(url, 'lxml')
@@ -30,9 +33,11 @@ for article in soup.find_all('article'):
         yt_link = None
 
     print(yt_link)
-
     print()
-
     csv_writer.writerow([headline, summary, yt_link])
 
-
+    
+if __name__=='__main__':
+    print('Resault is :', get_data())
+    print('Resault is :', get_data_api())
+    
