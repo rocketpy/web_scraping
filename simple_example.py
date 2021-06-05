@@ -10,10 +10,14 @@ def get_data():
     return data
 
 
+def get_data_api():
+    resp = requests..get(https://.../api/...)
+    data = resp.json()
+    value = [x for x in data['Data'] if x['User']['Name'] == 'John'][0]
+    return value['User']['Name']
 
 
 url = requests.get('http:// .com').text
-
 soup = BeautifulSoup(url, 'lxml')
 
 with open('cms_scrape.csv', 'w'):
