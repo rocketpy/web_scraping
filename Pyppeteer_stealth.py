@@ -23,4 +23,40 @@ async def main():
     await browser.close()
 asyncio.get_event_loop().run_until_complete(main())
 
+"""
+# Args:
+
+stealth(
+  page: Page,
+  run_on_insecure_origins: bool = False,
+  languages: [str] = ["en-US", "en"],
+  vendor: str = "Google Inc."
+  user_agent: str = None,
+  locale: str = "en-US,en",
+  mask_linux: bool = True,
+  webgl_vendor: str = "Intel Inc.",
+  renderer: str = "Intel Iris OpenGL Engine",
+  disabled_evasions: list = [],
+)
+
+"""
+
+"""
+# List of valid evasion names to pass into disabled_evasions:
+
+['chrome_app',
+ 'chrome_runtime',
+ 'iframe_content_window',
+ 'media_codecs',
+ 'sourceurl',
+ 'navigator_hardware_concurrency',
+ 'navigator_languages',
+ 'navigator_permissions',
+ 'navigator_plugins',
+ 'navigator_vendor',
+ 'navigator_webdriver',
+ 'user_agent_override',
+ 'webgl_vendor',
+ 'window_outerdimensions']
+"""
 
