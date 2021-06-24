@@ -22,8 +22,16 @@ data = {
 def get_data(url, params=data):
     r = requests.get(url, headers=headrs, params=params)
     return r
-  
- 
+
+
+def save_data(items, path):
+    with open(path, 'w',  encoding='utf8', newline='') as file:
+        writer = csv.writer(file, delimiter=',')
+        writer.writerow(['Name', 'Surname', 'Age'])
+        for item in items:
+            writer.writerow([item['name'], item['surname'], item['age']])
+
+
 if __name__ == '__main__':
     get_data()
     
