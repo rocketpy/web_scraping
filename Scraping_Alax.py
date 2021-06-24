@@ -19,9 +19,29 @@ data = {
         }
 
 
-def get_data(url, params=data):
+def get_html(url, params=data):
     r = requests.get(url, headers=headrs, params=params)
     return r
+
+
+def get_data(html):
+    soup = BeautifulSoup(html , 'lxml')
+    popular = soup.find_all('section')[1]
+    plags = popular.find_all('article')
+
+    for plag in plags:
+        name = plag.find('h2').text
+        url = plag.find('h2').find('a').get('href')
+
+        r = plag.find('span', class_='rating-count').find('a').text
+        rating = refined_data(r)
+
+        data = {'name': name,
+                'url': url,
+                'reviews': rating
+               }
+
+        write_csv(data)
 
 
 def save_data(items, path):
@@ -42,6 +62,6 @@ def write_csv(data):
 """
 
 if __name__ == '__main__':
-    get_data()
+    get_data(get_html(url))
     
     
