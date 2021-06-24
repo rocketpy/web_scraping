@@ -30,7 +30,16 @@ def save_data(items, path):
         writer.writerow(['Name', 'Surname', 'Age'])
         for item in items:
             writer.writerow([item['name'], item['surname'], item['age']])
+"""
+def write_csv(data):
+    with open('result.csv', 'a') as f:
+        writer = csv.writer(f, delimiter=',')
 
+        writer.writerow((data['name'],
+                         data['url'],
+                         data['reviews'])
+                       )
+"""
 
 if __name__ == '__main__':
     get_data()
