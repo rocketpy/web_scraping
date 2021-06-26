@@ -5,14 +5,15 @@
 # pip install bs4
 
 import requests
+import fake_useragent
 from bs4 import BeautifulSoup
 
 
-URL = "http://www..."
-r = requests.get(URL)
-  
+user = fake_useragent.UserAgent().random
+headers = {'User-Agent': f'{user}', 'accept': '*/*'}
+url = "http://www..."
+r = requests.get(url, headers=headers)
 soup = BeautifulSoup(r.content, 'html5lib')
-
 print(soup.prettify())
 
 
