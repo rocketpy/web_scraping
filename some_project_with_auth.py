@@ -1,3 +1,4 @@
+import requests
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -11,13 +12,20 @@ LOGIN = ""
 PASSWORD = ""
 
 
+def get_proxy():
+    # pattern = {'https': 'ipaddress:port'}
+    req = requests.get(url).text
+    soup = BeautifulSoup(req, 'lxml')
+    elem = soup.find('table', id='proxylisttable').find('tr')[1:]
+
+
 def get_auth():
     try:
         driver.get("https://www.")
         sleep(5)
-        driver.find_element_by_id("email").send_keys(LOGIN_FB)
+        driver.find_element_by_id("email").send_keys(LOGIN)
         sleep(2)
-        driver.find_element_by_id("pass").send_keys(PASSWORD_FB)
+        driver.find_element_by_id("pass").send_keys(PASSWORD)
         sleep(2)
         driver.find_element_by_id("").click()
         
