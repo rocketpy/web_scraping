@@ -4,6 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
+from random import choice
 
 
 # driver = webdriver.Chrome(PATH) 
@@ -16,7 +17,16 @@ def get_proxy():
     # pattern = {'https': 'ipaddress:port'}
     req = requests.get(url).text
     soup = BeautifulSoup(req, 'lxml')
-    elem = soup.find('table', id='proxylisttable').find('tr')[1:]
+    elems = soup.find('table', id='proxylisttable').find_all('tr')[1:]
+    proxies = []
+    for el in elems:
+        cell = el.find_all('td')
+        ip = cell[0]text.strip()
+        port = cell[1].text.strip()
+        shape = 'https' if 'yes' in cell[6] text.strip() else 'http'
+        proxy = {'schema': shape, 'address: ip + ':' + port}
+        proxies.append(proxy)
+        return choice(proxies)
 
 
 def get_auth():
