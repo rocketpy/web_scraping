@@ -8,6 +8,14 @@ from random import choice
 
 
 # driver = webdriver.Chrome(PATH) 
+# firefoxdriver = webdriver.Firefox(executable_path="Path to Firefox driver")
+
+# options = Options()
+# options.add_argument("--start-maximized")
+
+options = Options()
+options.add_argument("--incognito", "--start-maximized", "--headless")
+driver = webdriver.Chrome(chrome_options=options, executable_path="Path to driver")
 
 LOGIN = ""
 PASSWORD = ""
