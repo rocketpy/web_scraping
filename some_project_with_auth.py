@@ -28,9 +28,19 @@ def get_proxy():
         proxies.append(proxy)
         return choice(proxies)
 
+                 
+def make_preview():
+    try:
+        get_proxy()
+        driver.get("https://www.") 
+                 
+    except:
+        print("Error !")      
+                 
 
 def get_auth():
     try:
+        get_proxy()
         driver.get("https://www.")
         sleep(5)
         driver.find_element_by_id("email").send_keys(LOGIN)
