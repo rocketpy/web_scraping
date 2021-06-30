@@ -1,10 +1,11 @@
+from time import sleep
+from random import choice
 import requests
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
-from random import choice
 
 
 # driver = webdriver.Chrome(PATH) 
@@ -40,7 +41,9 @@ def get_proxy():
 def make_preview():
     try:
         get_proxy()
-        driver.get("https://www.") 
+        driver.get("https://www.")
+        # time.sleep(5)
+        
                  
     except:
         print("Error !")      
