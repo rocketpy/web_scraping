@@ -43,11 +43,23 @@ def make_preview():
         get_proxy()
         driver.get("https://www.")
         # time.sleep(5)
-        play_button = driver.find_element_by_class_name('').click() 
-        # time.sleep(20)
-        like_button = driver.find_element_by_class_name('').click()
+        driver.find_element_by_class_name('').click() 
+        time.sleep(20)
+                 
+        # driver.find_element_by_class_name('').click()
         # time.sleep(5)
-        # place for code for add comment 
+        # driver.find_element_by_id("contenteditable-root").send_keys()
+        # time.sleep(5)
+        # submit_button = driver.find_element_by_id('submit-button').click()
+    except:
+        print("Oooops, Some Error !")     
+                 
+                 
+def create_comment():
+    try:
+        driver.find_element_by_id("contenteditable-root").send_keys()
+        # time.sleep(5)
+        driver.find_element_by_id('submit-button').click()
     except:
         print("Oooops, Some Error !")      
                  
@@ -71,4 +83,5 @@ def get_auth():
 
 if __name__ == '__main__':
     get_auth()
+    driver.quit()  # or driver.close()
 
