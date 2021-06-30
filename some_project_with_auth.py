@@ -43,10 +43,13 @@ def make_preview():
         get_proxy()
         driver.get("https://www.")
         # time.sleep(5)
-        
-                 
+        play_button = driver.find_element_by_class_name('').click() 
+        # time.sleep(20)
+        like_button = driver.find_element_by_class_name('').click()
+        # time.sleep(5)
+        # place for code for add comment 
     except:
-        print("Error !")      
+        print("Oooops, Some Error !")      
                  
 
 def get_auth():
