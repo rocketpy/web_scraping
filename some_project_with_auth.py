@@ -22,7 +22,8 @@ LOGIN = ""
 PASSWORD = ""
 
 comment_patterns = ['Please more video, like this !', 'Perfection! Absolutely love this ...', 
-                    'This is such a wonderful !', 'Perfect starter video for a total amateur like me ))! '
+                    'This is such a wonderful !', 'Perfect starter video for a total amateur like me ))!', 
+                    'Hi! Thanks for this amazing video.', 'Wow, thank you for the video. Please more ))!'
                    ]
 
 
@@ -46,24 +47,19 @@ def make_preview():
     try:
         get_proxy()
         driver.get("https://www.")
-        # time.sleep(5)
-        driver.find_element_by_class_name('').click() 
+        time.sleep(5)
+        driver.find_element_by_class_name('ytp-play-button ytp-button').click() 
         time.sleep(20)
-                 
-        # driver.find_element_by_class_name('').click()
-        # time.sleep(5)
-        # driver.find_element_by_id("contenteditable-root").send_keys()
-        # time.sleep(5)
-        # submit_button = driver.find_element_by_id('submit-button').click()
     except:
         print("Oooops, Some Error !")     
                  
                  
 def create_comment():
     try:
-        driver.find_element_by_id("contenteditable-root").send_keys()
-        # time.sleep(5)
+        driver.find_element_by_id("contenteditable-root").send_keys(choice(comment_patterns))
+        time.sleep(5)
         driver.find_element_by_id('submit-button').click()
+        time.sleep(5)
     except:
         print("Oooops, Some Error !")      
                  
@@ -89,7 +85,7 @@ def get_auth():
         
         if driver.find_element_by_id(""):
             print("Authorization not done ! ")
-            #vget_auth()
+            # get_auth()
     except NoSuchElementException:
         print("Authorization is done !")
 
