@@ -21,6 +21,10 @@ driver = webdriver.Chrome(chrome_options=options, executable_path="Path to drive
 LOGIN = ""
 PASSWORD = ""
 
+comment_patterns = ['Please more video, like this !', 'Perfection! Absolutely love this ...', 
+                    'This is such a wonderful !', 'Perfect starter video for a total amateur like me ))! '
+                   ]
+
 
 def get_proxy():
     # pattern = {'https': 'ipaddress:port'}
@@ -62,6 +66,14 @@ def create_comment():
         driver.find_element_by_id('submit-button').click()
     except:
         print("Oooops, Some Error !")      
+                 
+                 
+def make_like():
+    try:
+        driver.find_element_by_id('button').click()
+        time.sleep(5)
+    except:
+        print("Oooops, Some Error !")    
                  
 
 def get_auth():
