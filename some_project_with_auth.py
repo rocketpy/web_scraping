@@ -22,6 +22,15 @@ options = Options()
 options.add_argument("--incognito", "--start-maximized", "--headless")
 driver = webdriver.Chrome(chrome_options=options, executable_path="Path to driver")
 
+"""
+# create a random user agent
+useragent = UserAgent()
+profile = webdriver.FirefoxProfile()
+profile.set_preference("general.useragent.override", useragent.random)
+driver = webdriver.Firefox(firefox_profile=profile, executable_path="C:\\BrowserDrivers\\geckodriver.exe")
+driver.get("http://www.whatsmyua.info/")
+"""
+
 LOGIN = ""
 PASSWORD = ""
 
