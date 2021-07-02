@@ -6,29 +6,44 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.chrome.options import Options
 from fake_useragent import UserAgent
 
 
-ua = UserAgent()
-
+# ua = UserAgent()
 
 # driver = webdriver.Chrome(PATH) 
 # firefoxdriver = webdriver.Firefox(executable_path="Path to Firefox driver")
 
 # options = Options()
 # options.add_argument("--start-maximized")
+# options.add_argument("window-size=1400,600")
 
 options = Options()
 options.add_argument("--incognito", "--start-maximized", "--headless")
 driver = webdriver.Chrome(chrome_options=options, executable_path="Path to driver")
 
 """
-# create a random user agent
+# create a random user agent for Firefox
 useragent = UserAgent()
 profile = webdriver.FirefoxProfile()
 profile.set_preference("general.useragent.override", useragent.random)
 driver = webdriver.Firefox(firefox_profile=profile, executable_path="C:\\BrowserDrivers\\geckodriver.exe")
 driver.get("http://www.whatsmyua.info/")
+"""
+
+# create a random user agent for Chrome
+"""
+options = Options()
+options.add_argument("window-size=1400,600")
+ua = UserAgent()
+a = ua.random
+user_agent = ua.random
+print(user_agent)
+options.add_argument(f'user-agent={user_agent}')
+driver = webdriver.Chrome(chrome_options=options)
+driver.get('https://whoer.net/')
+driver.quit()
 """
 
 LOGIN = ""
