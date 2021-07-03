@@ -48,8 +48,7 @@ driver.quit()
 
 LOGIN = ""
 PASSWORD = ""
-
-comment_patterns = ['Please more video, like this !', 'Perfection! Absolutely love this ...', 
+comments = ['Please more video, like this !', 'Perfection! Absolutely love this ...', 
                     'This is such a wonderful !', 'Perfect starter video for a total amateur like me ))!', 
                     'Hi! Thanks for this amazing video.', 'Wow, thank you for the video. Please more ))!'
                    ]
@@ -84,7 +83,7 @@ def make_preview():
                  
 def create_comment():
     try:
-        driver.find_element_by_id("contenteditable-root").send_keys(choice(comment_patterns))
+        driver.find_element_by_id("contenteditable-root").send_keys(choice(comments))
         time.sleep(5)
         driver.find_element_by_id('submit-button').click()
         time.sleep(5)
@@ -118,6 +117,11 @@ def get_auth():
         print("Authorization is done !")
 
 if __name__ == '__main__':
+    get_proxy()
     get_auth()
-    driver.quit()  # or driver.close()
+    make_peview()
+    # make_comment()
+    # make_like()
+    driver.quit()  
+    # driver.close()
 
