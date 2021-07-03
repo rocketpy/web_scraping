@@ -3,14 +3,12 @@ from random import choice
 import requests
 from bs4 import BeautifulSoup
 from selenium import webdriver
-from selenium.webdriver.common.by import By
+# from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.chrome.options import Options
 from fake_useragent import UserAgent
 
-
-# ua = UserAgent()
 
 # driver = webdriver.Chrome(PATH) 
 # firefoxdriver = webdriver.Firefox(executable_path="Path to Firefox driver")
@@ -19,8 +17,11 @@ from fake_useragent import UserAgent
 # options.add_argument("--start-maximized")
 # options.add_argument("window-size=1400,600")
 
+
+# proxy = "12.345.678.910:8080"
 options = Options()
 options.add_argument("--incognito", "--start-maximized", "--headless")
+options.add_argument('--proxy-server=%s' % proxy)
 driver = webdriver.Chrome(chrome_options=options, executable_path="Path to driver")
 
 """
@@ -102,6 +103,11 @@ def make_like():
 def get_auth():
     try:
         get_proxy()
+        # proxy = "12.345.678.910:8080"
+        options = Options()
+        options.add_argument("--incognito", "--start-maximized", "--headless")
+        options.add_argument('--proxy-server=%s' % proxy)
+        driver = webdriver.Chrome(chrome_options=options, executable_path="Path to driver")
         driver.get("https://www.")
         sleep(5)
         driver.find_element_by_id("email").send_keys(LOGIN)
