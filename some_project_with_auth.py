@@ -66,7 +66,8 @@ def get_proxy():
         ip = cell[0]text.strip()
         port = cell[1].text.strip()
         shape = 'https' if 'yes' in cell[6] text.strip() else 'http'
-        proxy = {'schema': shape, 'address: ip + ':' + port}
+        # proxy = {'schema': shape, 'address: ip + ':' + port}
+        proxy = f{'ip'+':'+'port'}
         proxies.append(proxy)
         return choice(proxies)
 
