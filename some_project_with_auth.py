@@ -72,9 +72,14 @@ def get_proxy():
         return choice(proxies)
 
                  
-def make_preview():
+def make_preview_without_auth():
     try:
-        get_proxy()
+        proxy = get_proxy()
+        options = Options()
+        options.add_argument("--incognito", "--start-maximized", "--headless")
+        options.add_argument('--proxy-server=%s' % proxy)
+        driver = webdriver.Chrome(chrome_options=options, executable_path="Path to driver")
+        
         driver.get("https://www.")
         time.sleep(5)
         driver.find_element_by_class_name('ytp-play-button ytp-button').click() 
@@ -103,7 +108,7 @@ def make_like():
 
 def get_auth():
     try:
-        get_proxy()
+        proxy = get_proxy()
         # proxy = "12.345.678.910:8080"
         options = Options()
         options.add_argument("--incognito", "--start-maximized", "--headless")
