@@ -67,7 +67,7 @@ def get_proxy():
         port = cell[1].text.strip()
         shape = 'https' if 'yes' in cell[6] text.strip() else 'http'
         # proxy = {'schema': shape, 'address: ip + ':' + port}
-        proxy = f{'ip'+':'+'port'}
+        proxy = f"{ip} + ':' + {port}"
         proxies.append(proxy)
         return choice(proxies)
 
@@ -79,11 +79,10 @@ def make_preview_without_auth():
         options.add_argument("--incognito", "--start-maximized", "--headless")
         options.add_argument('--proxy-server=%s' % proxy)
         driver = webdriver.Chrome(chrome_options=options, executable_path="Path to driver")
-        
         driver.get("https://www.")
-        time.sleep(5)
+        sleep(5)
         driver.find_element_by_class_name('ytp-play-button ytp-button').click() 
-        time.sleep(20)
+        sleep(20)
     except:
         print("Oooops, Some Error !")     
                  
@@ -91,9 +90,9 @@ def make_preview_without_auth():
 def create_comment():
     try:
         driver.find_element_by_id("contenteditable-root").send_keys(choice(comments))
-        time.sleep(5)
+        sleep(5)
         driver.find_element_by_id('submit-button').click()
-        time.sleep(5)
+        sleep(5)
     except:
         print("Oooops, Some Error !")      
                  
@@ -101,7 +100,7 @@ def create_comment():
 def make_like():
     try:
         driver.find_element_by_id('button').click()
-        time.sleep(5)
+        sleep(5)
     except:
         print("Oooops, Some Error !")    
                  
@@ -125,13 +124,14 @@ def get_auth():
         if driver.find_element_by_id(""):
             print("Authorization not done ! ")
             # get_auth()
-    except NoSuchElementException:
+    except Exception:
         print("Authorization is done !")
 
+        
 if __name__ == '__main__':
     get_proxy()
     get_auth()
-    make_peview()
+    make_preview_without_auth()
     # make_comment()
     # make_like()
     driver.quit()  
