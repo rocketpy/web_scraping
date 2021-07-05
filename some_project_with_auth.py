@@ -19,10 +19,12 @@ from fake_useragent import UserAgent
 
 
 # proxy = "12.345.678.910:8080"
-options = Options()
-options.add_argument("--incognito", "--start-maximized", "--headless")
-options.add_argument('--proxy-server=%s' % proxy)
-driver = webdriver.Chrome(chrome_options=options, executable_path="Path to driver")
+# options = Options()
+# options.add_argument("--incognito")
+# options.add_argument("--start-maximized")
+# options.add_argument("--headless")
+# options.add_argument('--proxy-server=%s' % proxy)
+# driver = webdriver.Chrome(chrome_options=options, executable_path="Path to driver")
 
 """
 # create a random user agent for Firefox
@@ -50,33 +52,35 @@ driver.quit()
 LOGIN = ""
 PASSWORD = ""
 comments = ['Please more video, like this !', 'Perfection! Absolutely love this ...', 
-                    'This is such a wonderful !', 'Perfect starter video for a total amateur like me ))!', 
-                    'Hi! Thanks for this amazing video.', 'Wow, thank you for the video. Please more ))!'
-                   ]
+            'This is such a wonderful !', 'Perfect starter video for a total amateur like me ))!', 
+            'Hi! Thanks for this amazing video.', 'Wow, thank you for the video. Please more ))!'
+           ]
 
 
 def get_proxy():
     # pattern = {'https': 'ipaddress:port'}
-    req = requests.get(url).text
+    req = requests.get('https://').text
     soup = BeautifulSoup(req, 'lxml')
     elems = soup.find('table', id='proxylisttable').find_all('tr')[1:]
     proxies = []
     for el in elems:
         cell = el.find_all('td')
-        ip = cell[0]text.strip()
+        ip = cell[0].text.strip()
         port = cell[1].text.strip()
-        shape = 'https' if 'yes' in cell[6] text.strip() else 'http'
+        shape = 'https' if 'yes' in cell[6].text.strip() else 'http'
         # proxy = {'schema': shape, 'address: ip + ':' + port}
-        proxy = f"{ip} + ':' + {port}"
+        proxy = f"{ip}:{port}"
         proxies.append(proxy)
-        return choice(proxies)
+    return choice(proxies)
 
                  
 def make_preview_without_auth():
     try:
         proxy = get_proxy()
         options = Options()
-        options.add_argument("--incognito", "--start-maximized", "--headless")
+        options.add_argument("--incognito")
+        options.add_argument("--start-maximized")
+        options.add_argument("--headless")
         options.add_argument('--proxy-server=%s' % proxy)
         driver = webdriver.Chrome(chrome_options=options, executable_path="Path to driver")
         driver.get("https://www.")
@@ -87,7 +91,7 @@ def make_preview_without_auth():
         print("Oooops, Some Error !")     
                  
                  
-def create_comment():
+def create_comment(driver):
     try:
         driver.find_element_by_id("contenteditable-root").send_keys(choice(comments))
         sleep(5)
@@ -97,7 +101,7 @@ def create_comment():
         print("Oooops, Some Error !")      
                  
                  
-def make_like():
+def make_like(driver):
     try:
         driver.find_element_by_id('button').click()
         sleep(5)
@@ -110,7 +114,9 @@ def get_auth():
         proxy = get_proxy()
         # proxy = "12.345.678.910:8080"
         options = Options()
-        options.add_argument("--incognito", "--start-maximized", "--headless")
+        options.add_argument("--incognito")
+        options.add_argument("--start-maximized")
+        options.add_argument("--headless")
         options.add_argument('--proxy-server=%s' % proxy)
         driver = webdriver.Chrome(chrome_options=options, executable_path="Path to driver")
         driver.get("https://www.")
@@ -130,10 +136,10 @@ def get_auth():
         
 if __name__ == '__main__':
     get_proxy()
-    get_auth()
-    make_preview_without_auth()
+    # get_auth()
+    # make_preview_without_auth()
     # make_comment()
     # make_like()
-    driver.quit()  
+    # driver.quit()  
     # driver.close()
 
