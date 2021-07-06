@@ -4,10 +4,12 @@ import requests
 from bs4 import BeautifulSoup
 from selenium import webdriver
 # from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.chrome.options import Options
+# from selenium.webdriver.common.keys import Keys
+# from selenium.webdriver.support.ui import WebDriverWait
+# from selenium.webdriver.chrome.options import Options
 from fake_useragent import UserAgent
+from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.common.proxy import Proxy
 
 
 # driver = webdriver.Chrome(PATH) 
@@ -79,12 +81,13 @@ def get_proxy():
 def make_preview_without_auth():
     try:
         proxy = get_proxy()
-        options = Options()
-        options.add_argument("--incognito")
-        options.add_argument("--start-maximized")
-        options.add_argument("--headless")
-        options.add_argument('--proxy-server=%s' % proxy)
-        driver = webdriver.Chrome(chrome_options=options, executable_path="Path to driver")
+        desired_capability = webdriver.DesiredCapabilities.FIREFOX
+        desired_capability['proxy'] = {'proxyType': "manual",
+                                       'httpProxy': proxy,
+                                       'ftpProxy': proxy,
+                                       'sslProxy': proxy,
+                                       }
+        driver = webdriver.Firefox(capabilities=desired_capability)
         driver.get("https://www.")
         sleep(5)
         driver.find_element_by_class_name('ytp-play-button ytp-button').click() 
