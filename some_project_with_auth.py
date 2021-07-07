@@ -81,6 +81,9 @@ def get_proxy():
 def make_preview_without_auth():
     try:
         proxy = get_proxy()
+        useragent = UserAgent()
+        profile = webdriver.FirefoxProfile()
+        profile.set_preference("general.useragent.override", useragent.random)
         desired_capability = webdriver.DesiredCapabilities.FIREFOX
         desired_capability['proxy'] = {'proxyType': "manual",
                                        'httpProxy': proxy,
