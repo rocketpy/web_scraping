@@ -89,9 +89,13 @@ def make_preview_without_auth():
                                        }
         driver = webdriver.Firefox(capabilities=desired_capability)
         driver.get("https://www.")
-        sleep(5)
-        driver.find_element_by_class_name('ytp-play-button ytp-button').click() 
+        button = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CLASS_NAME, "ytp-play-button ytp-button")))
+        button.click()
+        # sleep(5)
+        # driver.find_element_by_class_name('ytp-play-button ytp-button').click()
         sleep(20)
+        driver.find_element_by_class_name('ytp-play-button ytp-button').click()
+        driver.quit()
     except:
         print("Oooops, Some Error !")     
                  
