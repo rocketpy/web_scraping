@@ -124,14 +124,28 @@ def make_like(driver):
 def get_auth():
     try:
         proxy = get_proxy()
+        """
         options = Options()
         options.add_argument("--incognito")
         options.add_argument("--start-maximized")
         options.add_argument("--headless")
         options.add_argument('--proxy-server=%s' % proxy)
         driver = webdriver.Chrome(chrome_options=options, executable_path="Path to driver")
+        """
+        useragent = UserAgent()
+        profile = webdriver.FirefoxProfile()
+        profile.set_preference("general.useragent.override", useragent.random)
+        desired_capability = webdriver.DesiredCapabilities.FIREFOX
+        desired_capability['proxy'] = {'proxyType': "manual",
+                                       'httpProxy': proxy,
+                                       'ftpProxy': proxy,
+                                       'sslProxy': proxy,
+                                       }
+        driver = webdriver.Firefox(capabilities=desired_capability)
+        driver.implicitly_wait(20) 
         driver.get("https://www.")
         sleep(5)
+        
         driver.find_element_by_id("button").click()
             
         driver.find_element_by_id("email").send_keys(EMAIL)
