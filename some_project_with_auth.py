@@ -51,7 +51,7 @@ driver.get('https://whoer.net/')
 driver.quit()
 """
 
-LOGIN = ""
+EMAIL = ""
 PASSWORD = ""
 comments = ['Please more video, like this !', 'Perfection! Absolutely love this ...', 
             'This is such a wonderful !', 'Perfect starter video for a total amateur like me ))!', 
@@ -124,7 +124,6 @@ def make_like(driver):
 def get_auth():
     try:
         proxy = get_proxy()
-        # proxy = "12.345.678.910:8080"
         options = Options()
         options.add_argument("--incognito")
         options.add_argument("--start-maximized")
@@ -133,7 +132,9 @@ def get_auth():
         driver = webdriver.Chrome(chrome_options=options, executable_path="Path to driver")
         driver.get("https://www.")
         sleep(5)
-        driver.find_element_by_id("email").send_keys(LOGIN)
+        driver.find_element_by_id("button").click()
+            
+        driver.find_element_by_id("email").send_keys(EMAIL)
         sleep(2)
         driver.find_element_by_id("pass").send_keys(PASSWORD)
         sleep(2)
