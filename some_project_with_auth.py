@@ -92,8 +92,9 @@ def make_preview_without_auth():
                                        }
         driver = webdriver.Firefox(capabilities=desired_capability)
         driver.get("https://www.")
-        button = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CLASS_NAME, "ytp-play-button ytp-button")))
-        button.click()
+        driver.implicitly_wait(20) 
+        # button = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CLASS_NAME, "ytp-play-button ytp-button")))
+        # button.click()
         # sleep(5)
         # driver.find_element_by_class_name('ytp-play-button ytp-button').click()
         sleep(20)
@@ -105,18 +106,18 @@ def make_preview_without_auth():
                  
 def create_comment(driver):
     try:
+        driver.implicitly_wait(20) 
         driver.find_element_by_id("contenteditable-root").send_keys(choice(comments))
-        sleep(5)
+        sleep(3)
         driver.find_element_by_id('submit-button').click()
-        sleep(5)
     except:
         print("Oooops, Some Error !")      
                  
                  
 def make_like(driver):
     try:
+        driver.implicitly_wait(20) 
         driver.find_element_by_id('button').click()
-        sleep(5)
     except:
         print("Oooops, Some Error !")    
                  
@@ -144,27 +145,22 @@ def get_auth():
         driver = webdriver.Firefox(capabilities=desired_capability)
         driver.implicitly_wait(20) 
         driver.get("https://www.")
-        sleep(5)
-        
         driver.find_element_by_id("button").click()
-            
-        driver.find_element_by_id("email").send_keys(EMAIL)
-        sleep(2)
-        driver.find_element_by_id("pass").send_keys(PASSWORD)
-        sleep(2)
-        driver.find_element_by_id("").click()
+        driver.find_element_by_id("identifierId").send_keys(EMAIL)
+        driver.find_element_by_id("").send_keys(PASSWORD)
+        driver.find_element_by_id("").click()  # button 'Continue'
         
-        if driver.find_element_by_id(""):
-            print("Authorization not done ! ")
+        # if driver.find_element_by_id(""):
+            # print("Authorization not done ! ")
             # get_auth()
     except Exception:
         print("Authorization is done !")
 
         
 if __name__ == '__main__':
-    get_proxy()
+    # get_proxy()
     # get_auth()
-    # make_preview_without_auth()
+    make_preview_without_auth()
     # make_comment()
     # make_like()
     # driver.quit()  
