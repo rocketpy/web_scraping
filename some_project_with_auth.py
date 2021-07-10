@@ -103,6 +103,8 @@ def make_preview_without_auth():
         # driver.find_element_by_class_name('ytp-play-button ytp-button').click()
         sleep(20)
         driver.find_element_by_class_name('ytp-play-button ytp-button').click()
+        # xpath:  /html/body/ytd-app/div/ytd-page-manager/ytd-watch-flexy/div[5]/div[1]/div/div[1]/div/div/div/ytd-player/div/div/div[29]/div[2]/div[1]/button
+        # css:  .ytp-play-button
         driver.quit()
     except:
         print("Oooops, Some Error !")     
