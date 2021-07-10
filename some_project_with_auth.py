@@ -151,8 +151,10 @@ def get_auth():
         driver.get("https://www.")
         driver.find_element_by_id("button").click()
         driver.find_element_by_id("identifierId").send_keys(EMAIL)
-        driver.find_element_by_id("").send_keys(PASSWORD)
-        driver.find_element_by_id("").click()  # button 'Continue'
+        driver.find_element_by_id("password").send_keys(PASSWORD)
+
+        driver.find_element_by_css(".VfPpkd-LgbsSe-OWXEXe-k8QpJ").click()  # button 'Continue'
+        # by xpath:  /html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[2]/div/div[1]/div/div/button 
         
         # if driver.find_element_by_id(""):
             # print("Authorization not done ! ")
