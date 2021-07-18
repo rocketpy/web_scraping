@@ -13,3 +13,10 @@ def refined(s):
     return r.replace('.00', '')
 
   
+def write_csv(data):
+    with open('file_name.csv', 'a') as f:
+        writer = csv.writer(f, delimiter=',')
+        writer.writerow((data['name'],
+                         data['url'],
+                         data['reviews']))    
+
