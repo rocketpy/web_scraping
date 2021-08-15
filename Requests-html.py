@@ -23,4 +23,11 @@ When using this library you automatically get:
     Async Support
 """
 
+# Make a GET request:
+
+from requests_html import HTMLSession
+
+
+session = HTMLSession()
+r = session.get('https://')
 
