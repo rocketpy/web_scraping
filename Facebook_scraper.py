@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 
 
-class FBGroupScraper:
+class FacebookScraper:
 
     def __init__(self, group_id):
         self.group_id = group_id
@@ -19,3 +19,11 @@ class FBGroupScraper:
         feed_container = soup.find(id="m_group_stories_container").find_all("p")
         for i in feed_container:
             print(i.text)
+
+            
+group_id = "..."
+d = FacebookScraper(group_id)
+d.get_page_content()
+d.parse()
+ 
+            
