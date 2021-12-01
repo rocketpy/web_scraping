@@ -13,3 +13,34 @@ This way you leave the monitoring task to Spidermon and just check the reports/n
 
 # pip install spidermon
 
+"""
+scrapy startproject tutorial
+cd tutorial
+scrapy genspider quotes quotes.toscrape.com
+"""
+
+# https://github.com/scrapinghub/spidermon/tree/master/examples/tutorial/tutorial/spiders
+# tutorial/spiders/quotes.py
+import scrapy
+
+
+class QuotesSpider(scrapy.Spider):
+    name = 'quotes'
+    allowed_domains = ['quotes.toscrape.com']
+    start_urls = ['http://quotes.toscrape.com/']
+
+    def parse(self, response):
+        for quote in response.css('.quote'):
+            yield {
+                'quote': quote.css('.text::text').get(),
+                'author': quote.css('.author::text').get(),
+                'author_url': response.urljoin(
+                    quote.css('.author a::attr(href)').get()),
+                'tags': quote.css('.tag *::text').getall(),
+            }
+
+        yield scrapy.Request(
+            response.urljoin(
+                response.css('.next a::attr(href)').get()
+            )
+        )
