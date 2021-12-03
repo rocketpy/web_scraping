@@ -81,3 +81,42 @@ class SpiderCloseMonitorSuite(MonitorSuite):
     monitors = [
         ItemCountMonitor,
     ]
+    
+# Item validation
+import scrapy
+
+
+class QuoteItem(scrapy.Item):
+    quote = scrapy.Field()
+    author = scrapy.Field()
+    author_url = scrapy.Field()
+    tags = scrapy.Field()
+
+    
+# modify the spider code to use the newly defined item
+import scrapy
+from tutorial.items import QuoteItem
+
+
+class QuotesSpider(scrapy.Spider):
+    name = 'quotes'
+    allowed_domains = ['quotes.toscrape.com']
+    start_urls = ['http://quotes.toscrape.com/']
+
+    def parse(self, response):
+        for quote in response.css('.quote'):
+            item = QuoteItem(
+                quote=quote.css('.text::text').get(),
+                author=quote.css('.author::text').get(),
+                author_url=response.urljoin(
+                    quote.css('.author a::attr(href)').get()
+                ),
+                tags=quote.css('.tag *::text').getall()
+            )
+            yield item
+
+        yield scrapy.Request(
+            response.urljoin(
+                response.css('.next a::attr(href)').get()
+            )
+        )
