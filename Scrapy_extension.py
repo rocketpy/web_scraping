@@ -120,3 +120,26 @@ class QuotesSpider(scrapy.Spider):
                 response.css('.next a::attr(href)').get()
             )
         )
+
+        
+# create our schematics model in validators.py
+from schematics.models import Model
+from schematics.types import URLType, StringType, ListType
+
+
+class QuoteItem(Model):
+    quote = StringType(required=True)
+    author = StringType(required=True)
+    author_url = URLType(required=True)
+    
+    
+# # tutorial/settings.py
+ITEM_PIPELINES = {
+    'spidermon.contrib.scrapy.pipelines.ItemValidationPipeline': 800,
+}
+
+SPIDERMON_VALIDATION_MODELS = (
+    'tutorial.validators.QuoteItem',
+)
+
+    tags = ListType(StringType)
