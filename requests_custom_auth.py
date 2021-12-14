@@ -16,4 +16,8 @@ class PizzaAuth(AuthBase):
         # modify and return the request
         r.headers['X-Pizza'] = self.username
         return r
-
+        
+        
+# we can make a request using our Pizza Auth:    
+requests.get('http://pizzabin.org/admin', auth=PizzaAuth('kenneth'))
+# <Response [200]>
