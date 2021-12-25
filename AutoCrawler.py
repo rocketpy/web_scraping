@@ -40,3 +40,17 @@ python3 main.py [--skip true] [--threads 4] [--google true] [--naver true] [--fu
                    Every thread will randomly choose one from the list.
 """
 
+#  Full Resolution Mode
+# Download full resolution image of JPG, GIF, PNG files by specifying --full true
+
+# IMPORTANT
+# Data Imbalance Detection
+"""
+Detects data imbalance based on number of files.
+When crawling ends, the message show you what directory has under 50% of average files.
+I recommend you to remove those directories and re-download.
+"""
+
+# Customize
+# To make your own crawler by changing collect_links.py
+
