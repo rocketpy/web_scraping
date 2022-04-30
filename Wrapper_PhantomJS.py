@@ -56,3 +56,14 @@ conf = {
 output = phantom.download_page(conf)
 """
 
+
+#  Executing Javascript
+
+# wait for the element
+wait = WebDriverWait(driver, 10)
+element = wait.until(EC.presence_of_element_located((By.ID, "list")))
+
+# pass the found element into the script
+result = driver.execute_script('return arguments[0].DataTable().data();', element)
+# print(result)
+
