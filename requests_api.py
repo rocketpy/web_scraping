@@ -27,6 +27,16 @@ def http_get_with_session(self, path: str, times: int):
         return content
 """
 
+# Using async / await
+"""
+def run_case(func, path, times):
+    start_timestamp = time.time()
+    asyncio.run(func(path, times))
+    task_time = round(time.time() - start_timestamp, 2)
+    rps = round(times / task_time, 1)
+    print(f"| Requests: {times}; Total time: {task_time} s; RPS: {rps}. |\n")
+"""
+
 
 if __name__ == '__main__':
     req_times = 10
