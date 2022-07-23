@@ -15,6 +15,17 @@ class Api:
             response = requests.get(self.url + path)
             content.append(response.json())
         return content
+    
+# Using Sessions
+"""
+def http_get_with_session(self, path: str, times: int):
+        content = []
+        with requests.session() as session:
+            for _ in tqdm(range(times), desc='Fetching data...', colour='GREEN'):
+                response = session.get(self.url + path)
+                content.append(response.json())
+        return content
+"""
 
 
 if __name__ == '__main__':
