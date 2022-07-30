@@ -37,7 +37,6 @@ def run_case(func, path, times):
     print(f"| Requests: {times}; Total time: {task_time} s; RPS: {rps}. |\n")
 """
 
-
 if __name__ == '__main__':
     req_times = 10
     api = Api(URL)
@@ -46,4 +45,20 @@ if __name__ == '__main__':
     task_time = round(time.time() - start_timestamp, 2)
     rps = round(req_times / task_time, 1)
     print(f"| Requests: {req_times}; Total time: {task_time} s; RPS: {rps}. |\n")
+
+    
+# or
+
+async def async_http_get(self, path: str, times: int):
+    async with aiohttp.ClientSession() as session:
+        content = []
+        for _ in tqdm(range(times), desc='Async fetching data...', colour='GREEN'):
+            response = await session.get(url=self.url + path)
+            content.append(await response.text(encoding='UTF-8'))
+        return content
+
+if __name__ == '__main__':
+    req_times = 50
+    api = Api(URL)
+    run_case(api.async_http_get, path='fact/', times=req_times)
 
