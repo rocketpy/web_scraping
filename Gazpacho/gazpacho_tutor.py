@@ -1,5 +1,8 @@
 # gazpacho is a simple, fast, and modern web scraping library. 
 
+# https://github.com/maxhumber/gazpacho
+# https://gazpacho.xyz/
+
 # pip install -U gazpacho
 
 from gazpacho import get, Soup
@@ -16,3 +19,21 @@ def parse(book):
     return name, price
 
 [parse(book) for book in books]
+
+
+# Tutorial
+
+from gazpacho import get, Soup
+
+# get
+url = 'https://scrape.world/soup'
+html = get(url)
+print(html[:50])
+
+# Adjust get requests with optional params and headers:
+
+get(
+    url='https://httpbin.org/anything',
+    params={'foo': 'bar', 'bar': 'baz'},
+    headers={'User-Agent': 'gazpacho'}
+)
