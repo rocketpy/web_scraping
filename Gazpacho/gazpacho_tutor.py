@@ -44,3 +44,15 @@ soup = Soup(html)
 
 # Soup objects can alternatively be initialized with the .get classmethod:
 soup = Soup.get(url)
+
+
+# .find
+# Use the .find method to target and extract HTML tags:
+h1 = soup.find('h1')
+print(h1)
+# <h1 id="firstHeading" class="firstHeading" lang="en">Soup</h1>
+
+# attrs=
+# Use the attrs argument to isolate tags that contain specific HTML element attributes:
+soup.find('div', attrs={'class': 'section-'})
+
