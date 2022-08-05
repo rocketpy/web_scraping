@@ -31,9 +31,16 @@ html = get(url)
 print(html[:50])
 
 # Adjust get requests with optional params and headers:
-
 get(
     url='https://httpbin.org/anything',
     params={'foo': 'bar', 'bar': 'baz'},
     headers={'User-Agent': 'gazpacho'}
 )
+
+
+# Soup
+# Use the Soup wrapper on raw html to enable parsing:
+soup = Soup(html)
+
+# Soup objects can alternatively be initialized with the .get classmethod:
+soup = Soup.get(url)
