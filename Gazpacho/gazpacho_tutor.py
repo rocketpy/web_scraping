@@ -56,3 +56,32 @@ print(h1)
 # Use the attrs argument to isolate tags that contain specific HTML element attributes:
 soup.find('div', attrs={'class': 'section-'})
 
+
+# partial=
+# Element attributes are partially matched by default. Turn this off by setting partial to False:
+
+soup.find('div', {'class': 'soup'}, partial=False)
+
+# mode=
+# Override the mode argument {'auto', 'first', 'all'} to guarantee return behaviour:
+
+print(soup.find('span', mode='first'))
+# <span class="navbar-toggler-icon"></span>
+len(soup.find('span', mode='all'))
+# 8
+
+dir()
+# Soup objects have html, tag, attrs, and text attributes:
+
+dir(h1)
+# ['attrs', 'find', 'get', 'html', 'strip', 'tag', 'text']
+
+print(h1.html)
+# '<h1 id="firstHeading" class="firstHeading" lang="en">Soup</h1>'
+print(h1.tag)
+# h1
+print(h1.attrs)
+# {'id': 'firstHeading', 'class': 'firstHeading', 'lang': 'en'}
+print(h1.text)
+# Soup
+
