@@ -41,3 +41,12 @@ headers = {
 
 r = requests.get('https://api.github.com/users', headers=headers)
 
+
+# SSLAdapter
+from requests_toolbelt import SSLAdapter
+import requests
+import ssl
+
+s = requests.Session()
+s.mount('https://', SSLAdapter(ssl.PROTOCOL_TLSv1))
+
