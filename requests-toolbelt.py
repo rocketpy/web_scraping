@@ -6,6 +6,8 @@
 
 # pip install requests-toolbelt
 
+# import requests_toolbelt
+
 
 # multipart/form-data Encoder:
 # The main attraction is a streaming multipart form-data object, MultipartEncoder. Its API looks like this:
@@ -34,12 +36,20 @@ r = requests.post('http://httpbin.org/post', data=m,
 
 # User-Agent constructor
 from requests_toolbelt import user_agent
+from requests import Session
+
+requests_toolbelt.user_agent('mypackage', '0.0.1')
 
 headers = {
     'User-Agent': user_agent('my_package', '0.0.1')
     }
-
 r = requests.get('https://api.github.com/users', headers=headers)
+# or
+s = Session()
+s.headers = {
+    'User-Agent': user_agent('my_package', '0.0.1')
+    }
+r = s.get('https://api.github.com/users')
 
 
 # SSLAdapter
