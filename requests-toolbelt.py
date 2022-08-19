@@ -50,3 +50,10 @@ import ssl
 s = requests.Session()
 s.mount('https://', SSLAdapter(ssl.PROTOCOL_TLSv1))
 
+
+# cookies/ForgetfulCookieJar
+from requests_toolbelt.cookies.forgetful import ForgetfulCookieJar
+
+session = requests.Session()
+session.cookies = ForgetfulCookieJar()
+
