@@ -52,6 +52,19 @@ s.headers = {
 r = s.get('https://api.github.com/users')
 
 
+# Adding Extra Information to Your User-Agent String
+import requests
+import requests_toolbelt
+from requests_toolbelt.utils import user_agent as ua
+
+user_agent = ua.user_agent('mypackage', '0.0.1',
+                           extras=[('requests', requests.__version__),
+                                   ('requests-toolbelt', requests_toolbelt.__version__)])
+
+s = requests.Session()
+s.headers['User-Agent'] = user_agent
+
+
 # SSLAdapter
 from requests_toolbelt import SSLAdapter
 import requests
