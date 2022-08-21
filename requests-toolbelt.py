@@ -65,6 +65,18 @@ s = requests.Session()
 s.headers['User-Agent'] = user_agent
 
 
+# Selecting Only What You Want
+import requests
+from requests_toolbelt.utils import user_agent as ua
+
+s = requests.Session()
+s.headers['User-Agent'] = ua.UserAgentBuilder(
+        'mypackage', '0.0.1',
+    ).include_extras([
+        ('requests', requests.__version__),
+    ]).build()
+
+
 # SSLAdapter
 from requests_toolbelt import SSLAdapter
 import requests
