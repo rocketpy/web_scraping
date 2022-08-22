@@ -77,6 +77,18 @@ s.headers['User-Agent'] = ua.UserAgentBuilder(
     ]).build()
 
 
+# or
+user_agent_str = UserAgentBuilder(
+        name='requests-toolbelt',
+        version='17.4.0',
+    ).include_implementation(
+    ).include_system(
+    ).include_extras([
+        ('requests', '2.14.2'),
+        ('urllib3', '1.21.2'),
+    ]).build()
+
+
 # SSLAdapter
 from requests_toolbelt import SSLAdapter
 import requests
