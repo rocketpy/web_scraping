@@ -104,3 +104,21 @@ from requests_toolbelt.cookies.forgetful import ForgetfulCookieJar
 session = requests.Session()
 session.cookies = ForgetfulCookieJar()
 
+
+# HTTPProxyDigestAuth
+# The HTTPProxyDigestAuth use digest authentication between the client and the proxy.
+
+import requests
+from requests_toolbelt.auth.http_proxy_digest import HTTPProxyDigestAuth
+
+
+proxies = {
+    "http": "http://PROXYSERVER:PROXYPORT",
+    "https": "https://PROXYSERVER:PROXYPORT",
+}
+url = "https://toolbelt.readthedocs.org/"
+auth = HTTPProxyDigestAuth("USERNAME", "PASSWORD")
+requests.get(url, proxies=proxies, auth=auth)
+
+
+
