@@ -122,6 +122,8 @@ requests.get(url, proxies=proxies, auth=auth)
 
 
 # AuthHandler
+# The AuthHandler is a way of using a single session with multiple websites that require authentication. 
+
 import requests
 from requests_toolbelt.auth.handler import AuthHandler
 
@@ -132,3 +134,10 @@ handler = AuthHandler({
     'https://api.github.com': ('sigmavirus24', 'apassword'),
     'https://gitlab.com': gitlab_auth,
 })
+
+session = requests.Session()
+session.auth = handler
+r = session.get('https://api.github.com/user')
+# assert r.ok
+r2 = session.get('https://gitlab.com/api/v3/projects')
+# assert r2.ok
