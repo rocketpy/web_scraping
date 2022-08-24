@@ -121,4 +121,14 @@ auth = HTTPProxyDigestAuth("USERNAME", "PASSWORD")
 requests.get(url, proxies=proxies, auth=auth)
 
 
+# AuthHandler
+import requests
+from requests_toolbelt.auth.handler import AuthHandler
 
+def gitlab_auth(request):
+    request.headers['PRIVATE-TOKEN'] = 'asecrettoken'
+
+handler = AuthHandler({
+    'https://api.github.com': ('sigmavirus24', 'apassword'),
+    'https://gitlab.com': gitlab_auth,
+})
