@@ -141,3 +141,17 @@ r = session.get('https://api.github.com/user')
 # assert r.ok
 r2 = session.get('https://gitlab.com/api/v3/projects')
 # assert r2.ok
+
+
+# GuessAuth
+# The GuessAuth authentication class automatically detects whether to use basic auth or digest auth:
+
+import requests
+from requests_toolbelt.auth import GuessAuth
+
+requests.get('http://httpbin.org/basic-auth/user/passwd',
+             auth=GuessAuth('user', 'passwd'))
+requests.get('http://httpbin.org/digest-auth/auth/user/passwd',
+             auth=GuessAuth('user', 'passwd'))
+
+
