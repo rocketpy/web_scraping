@@ -155,3 +155,20 @@ requests.get('http://httpbin.org/digest-auth/auth/user/passwd',
              auth=GuessAuth('user', 'passwd'))
 
 
+# GuessProxyAuth
+# The GuessProxyAuth handler will automatically detect whether to use basic authentication or
+# digest authentication when authenticating to the provided proxy.
+
+import requests
+from requests_toolbelt.auth.guess import GuessProxyAuth
+
+proxies = {
+    "http": "http://PROXYSERVER:PROXYPORT",
+    "https": "http://PROXYSERVER:PROXYPORT",
+}
+requests.get('http://httpbin.org/basic-auth/user/passwd',
+             auth=GuessProxyAuth('user', 'passwd', 'proxyusr', 'proxypass'),
+             proxies=proxies)
+requests.get('http://httpbin.org/digest-auth/auth/user/passwd',
+             auth=GuessProxyAuth('user', 'passwd', 'proxyusr', 'proxypass'),
+             proxies=proxies)
