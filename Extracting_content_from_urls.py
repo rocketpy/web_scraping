@@ -49,4 +49,37 @@ this is a test:
 providers.parse_html('<p>http://www.youtube.com/watch?v=54XHDUOHuzU</p>')
 
 # returns the following html:
-<p><iframe width="459" height="344" src="http://www.youtube.com/embed/54XHDUOHuzU?fs=1&amp;feature=oembed" frameborder="0" allowfullscreen="allowfullscreen"></iframe></p>
+<p><iframe width="459" height="344" src="http://www.youtube.com/embed/54XHDUOHuzU?fs=1&amp;feature=oembed"\
+frameborder="0" allowfullscreen="allowfullscreen"></iframe></p>
+
+
+# Example
+import pprint
+from micawber import bootstrap_oembed, ProviderException
+
+
+try:
+    read_input = raw_input
+except NameError:
+    read_input = input
+
+def main():
+    print('Please wait, loading providers from oembed.com')
+    providers = bootstrap_oembed()
+
+    while 1:
+        url = read_input('Enter a url (or q to quit): ')
+        if url.lower().strip() == 'q':
+            break
+
+        try:
+            result = providers.request(url)
+        except ProviderException:
+            print('No provider found for that url :/')
+        else:
+            print('Data for %s\n====================================================' % url)
+            pprint.pprint(result)
+
+if __name__ == '__main__':
+    print('Welcome to the example!')
+    main()
