@@ -3,6 +3,20 @@
 # https://github.com/NanmiCoder/MediaCrawler
 
 
+# Insalling
+"""
+cd MediaCrawler
+
+python -m venv venv
+
+# macos & linux
+source venv/bin/activate
+
+# windows
+venv\Scripts\activate
+"""
+
+
 # Main
 import argparse
 import asyncio
