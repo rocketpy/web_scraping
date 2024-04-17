@@ -35,4 +35,13 @@ shot-scraper https://datasette.io/ -o - > datasette.png
 If you omit the protocol http:// will be added automatically, and any redirects will be followed:
 
 shot-scraper datasette.io -o datasette.png
+
+# Adjusting the browser width and height
+The browser window used to take the screenshots defaults to 1280px wide and 780px tall.
+
+You can adjust these with the --width and --height options (-w and -h for short):
+
+shot-scraper https://datasette.io/ -o small.png --width 400 --height 800
+If you provide both options, the resulting screenshot will be of that size.
+If you omit --height a full page length screenshot will be produced (the default).
 """
