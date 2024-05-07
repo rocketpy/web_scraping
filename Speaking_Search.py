@@ -20,3 +20,9 @@ while(True):
             pyautogui.hotkey('ctrl', 'c')
             chrome_options = webdriver.ChromeOptions()
             capabilities = {'browserName': 'chrome', 'javascriptEnabled': True}
+
+        elif MyText == "stop":
+            break
+ 
+    except Exception as e:
+        pyautogui.press('enter')
