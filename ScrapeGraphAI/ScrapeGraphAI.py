@@ -39,3 +39,24 @@ smart_scraper_graph = SmartScraperGraph(
 
 result = smart_scraper_graph.run()
 # print(result)
+
+
+# Case 2: SearchGraph using Mixed Models
+# We use Groq for the LLM and Ollama for the embeddings.
+
+from scrapegraphai.graphs import SearchGraph
+
+
+# Define the configuration for the graph
+graph_config = {
+    "llm": {
+        "model": "groq/gemma-7b-it",
+        "api_key": "GROQ_API_KEY",
+        "temperature": 0
+    },
+    "embeddings": {
+        "model": "ollama/nomic-embed-text",
+        "base_url": "http://localhost:11434",  # set ollama URL arbitrarily
+    },
+    "max_results": 5,
+}
