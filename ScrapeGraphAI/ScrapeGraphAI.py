@@ -60,3 +60,13 @@ graph_config = {
     },
     "max_results": 5,
 }
+
+# Create the SearchGraph instance
+search_graph = SearchGraph(
+    prompt="List me all the traditional recipes from Chioggia",
+    config=graph_config
+)
+
+# Run the graph
+result = search_graph.run()
+# print(result)
