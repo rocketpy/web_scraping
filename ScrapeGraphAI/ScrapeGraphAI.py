@@ -70,3 +70,23 @@ search_graph = SearchGraph(
 # Run the graph
 result = search_graph.run()
 # print(result)
+
+
+# Case 3: SpeechGraph using OpenAI
+# You just need to pass the OpenAI API key and the model name.
+
+from scrapegraphai.graphs import SpeechGraph
+
+
+graph_config = {
+    "llm": {
+        "api_key": "OPENAI_API_KEY",
+        "model": "gpt-3.5-turbo",
+    },
+    "tts_model": {
+        "api_key": "OPENAI_API_KEY",
+        "model": "tts-1",
+        "voice": "alloy"
+    },
+    "output_path": "audio_summary.mp3",
+}
