@@ -90,3 +90,12 @@ graph_config = {
     },
     "output_path": "audio_summary.mp3",
 }
+
+speech_graph = SpeechGraph(
+    prompt="Make a detailed audio summary of the projects.",
+    source="https://perinim.github.io/projects/",
+    config=graph_config,
+)
+
+result = speech_graph.run()
+# print(result)
