@@ -1,6 +1,7 @@
 # Scrape the Web with entities extraction using OpenAI Function
 
 # https://github.com/trancethehuman/entities-extraction-web-scraper
+# https://openai.com/index/function-calling-and-other-api-updates/
 
 
 # Example
