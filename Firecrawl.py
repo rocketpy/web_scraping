@@ -7,12 +7,16 @@
 
 
 # [OLD] Firecrawl Python SDK
+
 """
 Installation
 To install the Firecrawl Python SDK, you can use pip:
 
 pip install firecrawl-py
+
+
 Usage
+
 Get an API key from firecrawl.dev
 Set the API key as an environment variable named FIRECRAWL_API_KEY or pass it as a parameter to the FirecrawlApp class.
 Here's an example of how to use the SDK:
@@ -35,5 +39,6 @@ crawl_params = {
         'limit': 1000,
     }
 }
+
 crawl_result = app.crawl_url(crawl_url, params=crawl_params)
 """
