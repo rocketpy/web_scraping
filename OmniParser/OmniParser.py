@@ -18,3 +18,23 @@ Ensure you have the V2 weights downloaded in weights folder (ensure caption weig
 for f in icon_detect/{train_args.yaml,model.pt,model.yaml} icon_caption/{config.json,generation_config.json,model.safetensors}; 
 do huggingface-cli download microsoft/OmniParser-v2.0 "$f" --local-dir weights; done mv weights/icon_caption weights/icon_caption_florence 
 """
+
+# Gradio Demo
+# python gradio_demo.py
+
+
+# Examples:
+
+from util.utils import get_som_labeled_img, check_ocr_box, get_caption_model_processor, get_yolo_model
+import torch
+from ultralytics import YOLO
+from PIL import Image
+
+
+device = 'cuda'
+model_path='weights/icon_detect/model.pt'
+
+som_model = get_yolo_model(model_path)
+
+som_model.to(device)
+print('model to {}'.format(device))
